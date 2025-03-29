@@ -1,0 +1,257 @@
+<deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
+  <configuration build-checksum="3100518126" file="D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProjectFiles\MatBaseX.prj" location="D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProjectFiles" name="MatBaseX" preferred-package-location="D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Apps\MatBaseX\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
+    <param.appname>MatBaseX</param.appname>
+    <param.icon>${PROJECT_ROOT}\MatBaseX_resources\icon.ico</param.icon>
+    <param.icons>
+      <file>${PROJECT_ROOT}\MatBaseX_resources\icon_48.png</file>
+      <file>${PROJECT_ROOT}\MatBaseX_resources\icon_32.png</file>
+      <file>${PROJECT_ROOT}\MatBaseX_resources\icon_24.png</file>
+      <file>${PROJECT_ROOT}\MatBaseX_resources\icon_16.png</file>
+    </param.icons>
+    <param.version>1.3</param.version>
+    <param.authnamewatermark>Dr. Procopios Constantinou</param.authnamewatermark>
+    <param.email>procopios.constantinou@psi.ch</param.email>
+    <param.company>PSI</param.company>
+    <param.summary>The main MatBaseX App that provides seamless navigation to all applications in a single, user-friendly interface.</param.summary>
+    <param.description>The main MatBaseX App that provides seamless navigation to all applications in a single, user-friendly interface.</param.description>
+    <param.screenshot>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ReadMeImages\App_Icons\MatBaseX-Icon_main_01.png</param.screenshot>
+    <param.guid />
+    <param.installpath.string>\PSI\MatBaseX\</param.installpath.string>
+    <param.installpath.combo>option.installpath.programfiles</param.installpath.combo>
+    <param.logo />
+    <param.install.notes />
+    <param.target.install.notes />
+    <param.intermediate>${PROJECT_ROOT}\MatBaseX\for_testing</param.intermediate>
+    <param.files.only>${PROJECT_ROOT}\MatBaseX\for_redistribution_files_only</param.files.only>
+    <param.output>${PROJECT_ROOT}\MatBaseX\for_redistribution</param.output>
+    <param.logdir>${PROJECT_ROOT}\MatBaseX</param.logdir>
+    <param.enable.clean.build>false</param.enable.clean.build>
+    <param.user.defined.mcr.options />
+    <param.target.type>subtarget.standalone</param.target.type>
+    <param.support.packages />
+    <param.web.mcr>true</param.web.mcr>
+    <param.package.mcr>false</param.package.mcr>
+    <param.no.mcr>false</param.no.mcr>
+    <param.web.mcr.name>MatBaseX_Installer_web</param.web.mcr.name>
+    <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
+    <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
+    <param.windows.command.prompt>true</param.windows.command.prompt>
+    <param.create.log>false</param.create.log>
+    <param.log.file />
+    <param.native.matlab>false</param.native.matlab>
+    <param.checkbox>false</param.checkbox>
+    <param.example />
+    <param.help.text>Syntax 
+	  -? 
+	 
+ Input Arguments 
+	 -?  print help on how to use the application 
+	 input arguments</param.help.text>
+    <unset>
+      <param.authnamewatermark />
+      <param.email />
+      <param.company />
+      <param.guid />
+      <param.installpath.string />
+      <param.installpath.combo />
+      <param.logo />
+      <param.install.notes />
+      <param.target.install.notes />
+      <param.intermediate />
+      <param.files.only />
+      <param.output />
+      <param.logdir />
+      <param.enable.clean.build />
+      <param.user.defined.mcr.options />
+      <param.target.type />
+      <param.support.packages />
+      <param.web.mcr />
+      <param.package.mcr />
+      <param.no.mcr />
+      <param.package.mcr.name />
+      <param.no.mcr.name />
+      <param.windows.command.prompt />
+      <param.create.log />
+      <param.log.file />
+      <param.native.matlab />
+      <param.checkbox />
+      <param.example />
+    </unset>
+    <fileset.main>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Apps\MatBaseX.mlapp</file>
+    </fileset.main>
+    <fileset.resources>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Apps</file>
+    </fileset.resources>
+    <fileset.package />
+    <fileset.depfun>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Crystallography Viewer (CRYS)\crystal_images\CUB-cF-Oh_Face-Centered Cubic.png</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Crystallography Viewer (CRYS)\crystal_images\CUB-cI-Oh_Body-Centered Cubic.png</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Crystallography Viewer (CRYS)\crystal_images\CUB-cP-Oh_Simple Cubic.png</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Crystallography Viewer (CRYS)\crystal_images\HEX-hP-D6h_Simple Hexagonal.png</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Crystallography Viewer (CRYS)\crystal_images\MCL-mP-C2h_Simple Monoclinic.png</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Crystallography Viewer (CRYS)\crystal_images\MCL-mS-C2h_Base-Centered Monoclinic.png</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Crystallography Viewer (CRYS)\crystal_images\ORC-oF-D2h_Face-Centered Orthorhombic.png</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Crystallography Viewer (CRYS)\crystal_images\ORC-oI-D2h_Body-Centered Orthorhombic.png</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Crystallography Viewer (CRYS)\crystal_images\ORC-oP-D2h_Simple Orthorhombic.png</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Crystallography Viewer (CRYS)\crystal_images\ORC-oS-D2h_Base-Centered Orthorhombic.png</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Crystallography Viewer (CRYS)\crystal_images\RHL-hR-D3d_Simple Rhombahedral.png</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Crystallography Viewer (CRYS)\crystal_images\TET-tI-D4h_Body-Centered Tetragonal.png</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Crystallography Viewer (CRYS)\crystal_images\TET-tP-D4h_Simple Tetragonal.png</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Crystallography Viewer (CRYS)\crystal_images\TRI-aP-Ci_Simple Triclinic.png</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Crystallography Viewer (CRYS)\general_functions\brillouin_zone_slices\get_bz_slice.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Crystallography Viewer (CRYS)\get_crys_props.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\peak_like_shapes\curve_asym_exp_blend.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\peak_like_shapes\curve_doniachsunjic.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\peak_like_shapes\curve_gaussian.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\peak_like_shapes\curve_lorentzian.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\peak_like_shapes\curve_pseudo_voigt_pGL.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\peak_like_shapes\curve_pseudo_voigt_pGLA.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\peak_like_shapes\curve_pseudo_voigt_sGL.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\peak_like_shapes\curve_pseudo_voigt_sGLA.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\peak_like_shapes\curve_voigt.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\thermal_distribution_shapes\curve_thermal_FDD.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\thermal_distribution_shapes\curve_thermal_FDDG.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\thermal_distribution_shapes\curve_thermal_FDDGpL.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\thermal_distribution_shapes\curve_thermal_FDDGsL.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\tophat_like_shapes\curve_tophat.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\pes_background_subtraction\pes_bgrnd.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\pes_background_subtraction\pes_bgrnd_1tougaard.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\pes_background_subtraction\pes_bgrnd_2tougaard.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\pes_background_subtraction\pes_bgrnd_linear.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\pes_background_subtraction\pes_bgrnd_poly.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\pes_background_subtraction\pes_bgrnd_shirley.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\pes_background_subtraction\pes_bgrnd_shirley_offset.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\pes_background_subtraction\pes_bgrnd_shirley_smart.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\pes_background_subtraction\pes_bgrnd_step_FDDGpL.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\pes_background_subtraction\pes_bgrnd_step_FDDGsL.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\pes_spectral_intensity\pes_spec_int.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\plot_functions\crosshair.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\plot_functions\read_line_colors.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\1979Seah_IMFP_Universal\calc_imfp_universal.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\1994Tanuma_IMFP_TPP2M\calc_imfp_tpp2m.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\1994Tanuma_IMFP_TPP2M\calc_imfp_tpp2m_avg.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\1999NIST_IMFP_NIST_Optical_Experiments\calc_imfp_optical.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\1999NIST_IMFP_NIST_Optical_Experiments\IMFPD_NIST1999.mat</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\2011Seah_IMFP_S1_S2\calc_imfp_S1.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\2011Seah_IMFP_S1_S2\calc_imfp_S2.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\2012Seah_EAL_S3_S4\calc_eal_S3.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\2012Seah_EAL_S3_S4\calc_eal_S3_organic.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\2012Seah_EAL_S3_S4\calc_eal_S4.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\2023_JTP_Equation\calc_imfp_jtp.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\calc_imfp.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\general_functions\calculate_mpd_functions\mpd_calc_eal_S3.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\general_functions\calculate_mpd_functions\mpd_calc_eal_S4.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\general_functions\calculate_mpd_functions\mpd_calc_imfp_jtp.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\general_functions\calculate_mpd_functions\mpd_calc_imfp_S1.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\general_functions\calculate_mpd_functions\mpd_calc_imfp_S2.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\general_functions\calculate_mpd_functions\mpd_calc_imfp_tpp2m.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Electron Inelastic Mean Free Path Database (IMFP)\general_functions\read_functions\read_imfp_formalisms.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Material Properties Database (MPD)\data\MatData.mat</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Material Properties Database (MPD)\data\v20250222_MatData.mat</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Material Properties Database (MPD)\general_functions\calculate_functions\calc_average_z_number.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Material Properties Database (MPD)\general_functions\calculate_functions\calc_elec_valency.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Material Properties Database (MPD)\general_functions\calculate_functions\calc_elemental_ratio.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Material Properties Database (MPD)\general_functions\calculate_functions\calc_molar_mass.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Material Properties Database (MPD)\general_functions\calculate_functions\calc_stoichiometry.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Material Properties Database (MPD)\general_functions\calculate_mpd_functions\mpd_calc_number_density.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Material Properties Database (MPD)\general_functions\read_functions\parse_chemical_formula.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Material Properties Database (MPD)\general_functions\read_functions\read_mpd_compounds.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Material Properties Database (MPD)\general_functions\read_functions\read_mpd_elements.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Material Properties Database (MPD)\get_mpd_props.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\PES Data Analysis (PES)\PES N-Layer Modelling\N-Layer Stack Modelling\read_pes_nlayer_color.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\PES Data Analysis (PES)\PES N-Layer Modelling\N-Layer Stack Modelling\simul_pes_nlayer_info_depth.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\PES Data Analysis (PES)\PES N-Layer Modelling\N-Layer Stack Modelling\simul_pes_nlayer_intensity.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\PES Data Analysis (PES)\PES N-Layer Modelling\N-Layer Stack Modelling\simul_pes_nlayer_sample.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Binding Energy Database (BE)\1993Moulder_BindingEnergies\BE_DB_Moulder1993.mat</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Binding Energy Database (BE)\1993Moulder_BindingEnergies\calc_be_moulder1993.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Binding Energy Database (BE)\2018Trzhaskovskaya_HAXPES_BE\BE_DB_Trzh2018.mat</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Binding Energy Database (BE)\2018Trzhaskovskaya_HAXPES_BE\calc_be_trzh2018.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Binding Energy Database (BE)\2022Cant_BindingEnergies\BE_DB_Cant2022.mat</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Binding Energy Database (BE)\2022Cant_BindingEnergies\calc_be_cant2022.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Binding Energy Database (BE)\2023Constantinou_BE\BE_DB_Constantinou2023.mat</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Binding Energy Database (BE)\2023Constantinou_BE\calc_be_constantinou2023.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Binding Energy Database (BE)\calc_be.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Binding Energy Database (BE)\general_functions\calculate_functions\calc_total_orbital_contribution.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Binding Energy Database (BE)\general_functions\read_functions\read_be_all_elements.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Binding Energy Database (BE)\general_functions\read_functions\read_be_core_levels_color.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Angular Anisotropy\2008Fisher_SX_Formalism\calc_angle_aniso_Fadj.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Angular Anisotropy\2022Cant_HX_Formalism\calc_angle_aniso_FP.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Angular Anisotropy\calc_angle_aniso.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Angular Anisotropy\view_angle_aniso.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\1973Scofield_Photoionization_Cross_Sections\calc_xsect_sigma_scof1973.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\1973Scofield_Photoionization_Cross_Sections\XS_DB_Scof1973.mat</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\1985YehLindau_Photoionization_Cross_Sections\calc_xsect_beta_yehlind1985.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\1985YehLindau_Photoionization_Cross_Sections\calc_xsect_sigma_yehlind1985.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\1985YehLindau_Photoionization_Cross_Sections\XS_DB_YehLind1985.mat</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\2018Trzhaskovskaya_HAXPES_parameters\calc_xsect_beta_trzh2018.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\2018Trzhaskovskaya_HAXPES_parameters\calc_xsect_delta_trzh2018.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\2018Trzhaskovskaya_HAXPES_parameters\calc_xsect_gamma_trzh2018.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\2018Trzhaskovskaya_HAXPES_parameters\calc_xsect_sigma_trzh2018.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\2018Trzhaskovskaya_HAXPES_parameters\XS_DB_Trzh2018.mat</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\2022Cant_AMRSF\calc_xsect_beta_cant2022.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\2022Cant_AMRSF\calc_xsect_delta_cant2022.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\2022Cant_AMRSF\calc_xsect_gamma_cant2022.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\2022Cant_AMRSF\calc_xsect_sigma_cant2022.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\2022Cant_AMRSF\XS_DB_Cant2022.mat</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\calc_xsect.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\general_functions\calculate_functions\calc_xsect_beta.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\general_functions\calculate_functions\calc_xsect_delta.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\general_functions\calculate_functions\calc_xsect_gamma.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\general_functions\calculate_functions\calc_xsect_sigma.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Photoionization Cross-Section and Asymmetry Database (XSECT)\Photoionization Parameters\general_functions\read_functions\read_xsect_core_levels.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Physics Constants (PC)\physics_constants.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\X-Ray Absorption Edge Database (XAE)\2025IXAS_XrayEdgesAndLines\calc_xae_ixas2025.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\X-Ray Absorption Edge Database (XAE)\2025IXAS_XrayEdgesAndLines\XAE_DB_IXAS2025.mat</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\X-Ray Absorption Edge Database (XAE)\calc_xae.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\X-Ray Absorption Edge Database (XAE)\general_functions\read_functions\read_xae_edges_color.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\X-Ray Atomic Scattering Factor Database (XASF)\Photoelectric Absorption and Scattering Cross Section\1993Henke_AtomicScatteringFactors\calc_xasf_henke1993.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\X-Ray Atomic Scattering Factor Database (XASF)\Photoelectric Absorption and Scattering Cross Section\1993Henke_AtomicScatteringFactors\XASF_DB_Henke1993.mat</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\X-Ray Atomic Scattering Factor Database (XASF)\Photoelectric Absorption and Scattering Cross Section\2005NIST_StandardReferenceDatabase66\calc_xasf_nist2005.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\X-Ray Atomic Scattering Factor Database (XASF)\Photoelectric Absorption and Scattering Cross Section\2005NIST_StandardReferenceDatabase66\XASF_DB_NIST2005.mat</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\X-Ray Atomic Scattering Factor Database (XASF)\Photoelectric Absorption and Scattering Cross Section\calc_xasf.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\X-Ray Atomic Scattering Factor Database (XASF)\Photoelectric Absorption and Scattering Cross Section\general_functions\calculate_functions\calc_xasf_atom_absorb_coeff.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\X-Ray Atomic Scattering Factor Database (XASF)\Photoelectric Absorption and Scattering Cross Section\general_functions\calculate_functions\calc_xasf_linear_absorb_coeff.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\X-Ray Atomic Scattering Factor Database (XASF)\Photoelectric Absorption and Scattering Cross Section\general_functions\calculate_functions\calc_xasf_mass_absorb_coeff.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\X-Ray Atomic Scattering Factor Database (XASF)\Photoelectric Absorption and Scattering Cross Section\general_functions\calculate_functions\calc_xasf_params.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\X-Ray Atomic Scattering Factor Database (XASF)\Photoelectric Absorption and Scattering Cross Section\general_functions\calculate_functions\calc_xasf_TandR.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\X-Ray Atomic Scattering Factor Database (XASF)\Photoelectric Absorption and Scattering Cross Section\general_functions\unit_conversions\convert_eV_to_nm.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\XPS Sensitivity Factor (SF)\calc_rsf.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\XPS Sensitivity Factor (SF)\calc_sf.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ReadMeImages\App_Figures\XPS_Geometry-01.png</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ReadMeImages\App_Icons\Icon_Crystallography.png</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ReadMeImages\App_Icons\Icon_IMFP.jpeg</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ReadMeImages\App_Icons\Icon_MaterialsProperties.jpeg</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ReadMeImages\App_Icons\Icon_NLayerModeller01.jpeg</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ReadMeImages\App_Icons\Icon_PESModelFitter.jpeg</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ReadMeImages\App_Icons\Icon_Photoionization.jpeg</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ReadMeImages\App_Icons\Icon_SensitivityFactorXPS.jpeg</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ReadMeImages\App_Icons\Icon_XRayAbsorption.png</file>
+    </fileset.depfun>
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}\MatBaseX\for_testing" name="MatBaseX.exe" optional="false">D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProjectFiles\MatBaseX\for_testing\MatBaseX.exe</file>
+      <file location="${PROJECT_ROOT}\MatBaseX\for_testing" name="splash.png" optional="false">D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProjectFiles\MatBaseX\for_testing\splash.png</file>
+      <file location="${PROJECT_ROOT}\MatBaseX\for_testing" name="readme.txt" optional="true">D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProjectFiles\MatBaseX\for_testing\readme.txt</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2024b</root>
+      <toolboxes />
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.0</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
