@@ -1,0 +1,4 @@
+X-ray absorption edges for Li
+  Edge  	  Energy (eV)  	  Width (eV)	  Fluorescence Yield	  Edge Jump
+    K	  54.7	  0.036	  0.00009	  1.000
+    L1	  5.3	  0.113	  0.00000	  1.000

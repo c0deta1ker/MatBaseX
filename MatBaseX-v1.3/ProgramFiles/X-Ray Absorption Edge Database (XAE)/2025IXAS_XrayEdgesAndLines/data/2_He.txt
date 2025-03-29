@@ -1,0 +1,3 @@
+X-ray absorption edges for He
+  Edge  	  Energy (eV)  	  Width (eV)	  Fluorescence Yield	  Edge Jump
+    K	  24.6	  0.027	  0.00000	  1.000
