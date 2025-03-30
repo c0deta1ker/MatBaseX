@@ -2,7 +2,7 @@
 
 [MatBaseX](https://github.com/c0deta1ker/MatBaseX) is a comprehensive database and analytical tool tailored for photoelectron spectroscopy (PES) analysis, emphasizing the study of materials and their X-ray interactions. It seamlessly integrates calculators and databases into one platform, providing functionalities such as a Materials Properties Database for managing data, tools for analysing X-ray Photoionization Energies, Cross-Sections, and X-ray Absorption and Scattering Factors. These features help users very quickly identify which core-levels give the most intensity at a given photon energy (via cross-section maximisation) or locate absorption edges for resonance spectroscopy. It also includes calculators for electron inelastic mean free path (IMFP) determination using eight different formalisms, as well as an XPS Sensitivity Factor Calculator to support precise, quantitative PES analysis.     
 
-Additional features include PES N-Layer Simulations, which utilizes the Beer-Lambert law to compute intensities for a user-defined heterostructure, and a PES Curve Fitting App that allows users to quickly load in experimental data (two-column text file containing binding energy and intensity values) and determine the best fit. By integrating all these advanced databases, calculators, and analytical tools, MatBaseX helps researchers streamline workflows and enhance the precision of their data analysis. [Download MatBaseX](https://github.com/c0deta1ker/MatBaseX/releases/download/v1.0/MatBaseX_Installer_Web.exe) today to explore its powerful capabilities!    
+Additional features include PES N-Layer Simulations, which utilizes the Beer-Lambert law to compute intensities for a user-defined heterostructure, and a PES Curve Fitting App that allows users to quickly load in experimental data (two-column text file containing binding energy and intensity values) and determine the best fit. By integrating all these advanced databases, calculators, and analytical tools, MatBaseX helps researchers streamline workflows and enhance the precision of their data analysis. [Download MatBaseX](https://github.com/c0deta1ker/MatBaseX/releases/download/v1.3/MatBaseX_Installer_Web.exe) today to explore its powerful capabilities!    
 
 ## Installation  
 1. Download the *MatBaseX* repository.
@@ -10,7 +10,7 @@ Additional features include PES N-Layer Simulations, which utilizes the Beer-Lam
 3. Make sure you also use *Set Path* to add the repository / folder that contains all of your data to be loaded in.
 4. Type 'MatBaseX' in the MATLAB Command Prompt to boot up the Main Menu App.
 
-Or, simply download & install the standalone app via the executable file [here](https://github.com/c0deta1ker/MatBaseX/releases/download/v1.0/MatBaseX_Installer_Web.exe)!
+Or, simply download & install the standalone app via the executable file [here](https://github.com/c0deta1ker/MatBaseX/releases/download/v1.3/MatBaseX_Installer_Web.exe)!
 
 
 ## Snapshot of MatBaseX Apps
