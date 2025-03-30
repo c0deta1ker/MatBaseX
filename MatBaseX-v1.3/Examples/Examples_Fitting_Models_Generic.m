@@ -1,6 +1,6 @@
 close all; clear all;
-path_matbase    = what('MatBase'); path_matbase = string(path_matbase.path);
-path_save       = path_matbase + "\MatBase-v1.2\PES Data Analysis\PES Modelling And Fitting\Fitting Models - Generic\0_figs\";
+path_matbase    = what('MatBaseX'); path_matbase = string(path_matbase.path);
+path_save       = path_matbase + "\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\0_figs\";
 xdat = linspace(-6, 6, 1e3);
 %% 1    :   Exponential And Power Law Models
 close all;

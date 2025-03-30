@@ -1,6 +1,6 @@
 close all; clear all;
 %% 1    :   Use the MatBase Application for IMFP Determination
-run App_MatBase_IMFP;
+run MatBaseX_05_IMFP;
 %% 2    :   Calculating the IMFP of Silicon at 1000 eV kinetic energy
 close all;
 ke_dat = 1000;

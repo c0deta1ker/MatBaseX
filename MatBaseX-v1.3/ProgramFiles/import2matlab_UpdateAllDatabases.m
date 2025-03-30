@@ -1,5 +1,6 @@
 close all; clear all; clc;
-path_matbase    = what('MatBase'); path_matbase = string(path_matbase.path);
+path_matbase    = what('MatBaseX'); 
+path_matbase = string(path_matbase.path);
 addpath(genpath(path_matbase));
 
 %% 1    :   MATLAB Digitization of All Databases, Figures & Data-Structures
@@ -26,10 +27,6 @@ run import2matlab_XAE_DB.m; close all; clear all;
 close all; clear all;
 % 2.1    :   Generic & PES Curve Shapes
 run import2matlab_CSLIB.m; close all; clear all;
-
-
-
-
 
 %% 3    :   Executing software to stress-test all functions
 % This should run smoothly through all the testing scripts with no errors

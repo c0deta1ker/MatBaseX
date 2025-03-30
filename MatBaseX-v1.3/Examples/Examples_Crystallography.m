@@ -1,6 +1,6 @@
 close all; clear all;
 %% 1    :   Use the MatBase Application for Crystallography Browser
-run App_MatBase_02_CrystallographyViewer;
+run MatBaseX_02_CrystallographyViewer;
 %% 2    :   CUB-cP-Oh    :    Simple Cubic (sc) 
 close all; clear all;
 [realStr, reciStr] = get_crystal_props("CUB-cP-Oh", 1);
