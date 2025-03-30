@@ -15,31 +15,31 @@ Or, simply download & install the standalone app via the executable file [here](
 
 ## Snapshot of MatBaseX Apps
 **(1) MatBase Main Menu**: The main MATLAB App that provides seamless navigation to all other MATLAB apps using the comprehensive Materials Properties Database. Accessible in MATLAB by typing 'MatBaseX' in the command prompt.
-![MatBaseX](MatBaseX-v1.3/0_ReadMeImages/MatBaseX.png)  
+![MatBaseX](MatBaseX-v1.3/ReadMeImages/MatBaseX.png)  
 
 **(2) Materials Database Editor**: Effortlessly manage the Materials Properties Database with this user-friendly app. Add, delete, and edit entries with ease, streamlining your workflow and enhancing the efficiency of other apps that utilize the database for calculations. Accessible in MATLAB via the MatBaseX Main Menu, or explicitly by typing 'MatBaseX_01_MaterialsDatabaseEditor'.
-![MatBaseX_01_MaterialsDatabaseEditor_Snapshot](MatBaseX-v1.3/0_ReadMeImages/MatBaseX_01_MaterialsDatabaseEditor_Snapshot.png)  
+![MatBaseX_01_MaterialsDatabaseEditor_Snapshot](MatBaseX-v1.3/ReadMeImages/MatBaseX_01_MaterialsDatabaseEditor_Snapshot.png)  
 
 **(3) Crystallography Viewer**: View unit cells in both real and reciprocal space, calculate the Brillouin zone, and extract 2D slices for analysis. Conveniently access material parameters from the Materials Properties Database or manually enter data for materials not included in the database. Accessible in MATLAB via the MatBaseX Main Menu, or explicitly by typing 'MatBaseX_02_CrystallographyViewer'.
-![MatBaseX_02_CrystallographyViewer](MatBaseX-v1.3/0_ReadMeImages/MatBaseX_02_CrystallographyViewer.png)  
+![MatBaseX_02_CrystallographyViewer](MatBaseX-v1.3/ReadMeImages/MatBaseX_02_CrystallographyViewer.png)  
 
 **(4) X-Ray Photoionization Binding Energy & Cross-Section Database**: Extract binding energy spectra, photoionization cross-sections, and asymmetry parameters for elements 1-98 using formalisms like Scofield (1973), Yeh & Lindau (1985), Trzhaskovskaya (2018), and Cant (2022). Identify the best core-levels to probe by finding maximum cross-sections.
-![MatBaseX_03_XrayPhotoionization](MatBaseX-v1.3/0_ReadMeImages/MatBaseX_03_XrayPhotoionization.png)   
+![MatBaseX_03_XrayPhotoionization](MatBaseX-v1.3/ReadMeImages/MatBaseX_03_XrayPhotoionization.png)   
 
 **(5) X-Ray Absorption Edge & Scattering Factor Database**: Extract x-ray absorption edges and scattering factors for elements 1-92 and derived compounds using the Henke (1995) & NIST (2005) methods. Calculate photoelectric mass attenuation coefficients and determine material properties like index of refraction, critical angle, transmission, and reflectance. Identify optimal edges for resonance spectroscopy. 
-![MatBaseX_04_XrayAbsorption](MatBaseX-v1.3/0_ReadMeImages/MatBaseX_04_XrayAbsorption.png)   
+![MatBaseX_04_XrayAbsorption](MatBaseX-v1.3/ReadMeImages/MatBaseX_04_XrayAbsorption.png)   
 
 **(6) Electron Inelastic Mean Free Path Calculator**: Calculate the electron inelastic mean free path (IMFP) using formalisms such as the Universal, Optical (NIST), TPP-2M, S1, S2, S3, S4, and JTP methods. Access material parameters from the Materials Properties Database or manually input data for materials not included in the database.
-![MatBaseX_05_IMFP](MatBaseX-v1.3/0_ReadMeImages/MatBaseX_05_IMFP.png)  
+![MatBaseX_05_IMFP](MatBaseX-v1.3/ReadMeImages/MatBaseX_05_IMFP.png)  
 
 **(7) XPS Sensitivity Factor Calculator**: Integrates IMFP, photoionization cross-sections, and asymmetry databases. Customize experimental geometry, photon polarization, and formalisms for IMFP and cross-section determination. Select core-levels and generate sensitivity factor plots against photon energy and emission angle with a single click. Indispensable for precise, quantitative XPS analysis.  
-![MatBaseX_06_XPSSensitivityFactor](MatBaseX-v1.3/0_ReadMeImages/MatBaseX_06_XPSSensitivityFactor.png)  
+![MatBaseX_06_XPSSensitivityFactor](MatBaseX-v1.3/ReadMeImages/MatBaseX_06_XPSSensitivityFactor.png)  
 
 **(8) PES - N-Layer Simulations**: Construct multi-layered models with uniform constant material concentration and thickness. Leverage the extensive database for material properties, IMFP parameters, photoionization cross-sections and asymmetry parameters. Accurately compute PES intensities using the Beer-Lambert law, modulated by electron IMFP based on your experimental setup. Graphically represent variations in photon energy and emission angles.   
-![MatBaseX_07_PES_NLayerSimulations](MatBaseX-v1.3/0_ReadMeImages/MatBaseX_07_PES_NLayerSimulations.png)       
+![MatBaseX_07_PES_NLayerSimulations](MatBaseX-v1.3/ReadMeImages/MatBaseX_07_PES_NLayerSimulations.png)       
 
 **(9) PES - Curve Fitting**: Accurately peak fit your XPS/PES data. Construct initial models with various curve shapes (Gaussian, Lorentzian, Voigt, or Doniach-Sunjic). Manually define the binding energy, spin-orbit split components and branching ratios or type in the core-level of interest, and if it exists in the binding energy database, all these parameters will be loaded automatically. Subtract the background using Polynomial, Shirley, or Tougaard methods, and enter lower/upper bound estimates for fit parameters. Run optimization algorithms to achieve the best fit. Simple and efficient to use for fast peak fitting and chemical shift identification.
-![MatBaseX_08_PESCurveFitter](MatBaseX-v1.3/0_ReadMeImages/MatBaseX_08_PESCurveFitter.png)     
+![MatBaseX_08_PESCurveFitter](MatBaseX-v1.3/ReadMeImages/MatBaseX_08_PESCurveFitter.png)     
 
 
 ## MATLAB Version control  
