@@ -2,38 +2,24 @@
 
 
 ## Log of updates
-**MatBaseX-v1.3 - 2025.03.05:** 
+**MatBaseX-v1.3 - 2025.04.01:** 
+General Updates:
+	-> Renamed the software package to 'MatBaseX' to reflect that this software package aims to summarise both material properties & x-ray interactions with matter
+	-> Significant update to all MATLAB Apps, making them more consistent, modular and efficient to run. 
+	-> Added options to both export (*.txt) and save (*.mat) data from all database sources within all MATLAB Apps
 
-	General Updates:
--> Renamed the software package to 'MatBaseX' to reflect that this software package aims to summarise both material properties & x-ray interactions with matter
--> Significant update to all MATLAB Apps, making them more consistent, modular and efficient to run. 
--> Added options to both export (*.txt) and save (*.mat) data from all database sources within all MATLAB Apps
-
-	1/ Material Properties Database (MPD):
--> New dedicated app that allows the user to add, edit and remove new material compounds with ease.
--> Options to undo all changes and revert to its default state.
--> This can be continuously updated, and all other Apps will call on the values that are defined here.
-
-	2/ Crystallography Viewer (CRYS):
-
-
-
-	3/ Photoionization Binding Energy Database (BE):
-
-	4/ Photoionization Cross-Section and Asymmetry Database (XSECT):
-
-	5/ Electron Inelastic Mean Free Path Database (IMFP):
-
-	6/ XPS Sensitivity Factor (SF):
-
-	7/ X-Ray Absorption Edge Database (XAE):
-
-	8/ X-Ray Atomic Scattering Factor Database (XASF):
-
-	9/ PES Data Analysis Software:
-
-
-
+List of all New & Updated Databases:
+	1/ Crystallography Viewer (CRYS)
+	2/ Curve Shapes Library (CS-LIB)
+	3/ Electron Inelastic Mean Free Path Database (IMFP)
+	4/ Material Properties Database (MPD)
+	5/ PES Data Analysis (PES)
+	6/ Photoionization Binding Energy Database (BE)
+	7/ Photoionization Cross-Section and Asymmetry Database (XSECT)
+	8/ Physics Constants (PC)
+	9/ XPS Sensitivity Factor (SF)	
+	10/ X-Ray Absorption Edge Database (XAE)
+	11/ X-Ray Atomic Scattering Factor Database (XASF)
 
 **v1.2 - 2024.09.03:** 
 -> Updated all MatBase Apps to make them consistent and more modular so they run more efficiently.
