@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="1759655606" file="D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProjectFiles\MatBaseX.prj" location="D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProjectFiles" name="MatBaseX" preferred-package-location="D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProjectFiles\MatBaseX\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration build-checksum="3609500654" file="D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProjectFiles\MatBaseX.prj" location="D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProjectFiles" name="MatBaseX" preferred-package-location="D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProjectFiles\MatBaseX\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>MatBaseX</param.appname>
     <param.icon>${PROJECT_ROOT}\MatBaseX_resources\icon.ico</param.icon>
     <param.icons>
@@ -112,6 +112,7 @@ Additional features include PES N-Layer Simulations, which utilizes the Beer-Lam
       <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\peak_like_shapes\curve_pseudo_voigt_sGL.m</file>
       <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\peak_like_shapes\curve_pseudo_voigt_sGLA.m</file>
       <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\peak_like_shapes\curve_voigt.m</file>
+      <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\step_like_shapes\curve_heaviside.m</file>
       <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\thermal_distribution_shapes\curve_thermal_FDD.m</file>
       <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\thermal_distribution_shapes\curve_thermal_FDDG.m</file>
       <file>D:\OneDrive\PCC_MS_Project\00_SLS_Software\MatBaseX\MatBaseX-v1.3\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\thermal_distribution_shapes\curve_thermal_FDDGpL.m</file>

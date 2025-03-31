@@ -27,8 +27,8 @@ if isempty(width); width = 1; end
 if width < 0; width = 0; end        % -- Ensure width is a positive number
 %% - 1 - Determination of the curve intensities
 % -- Extract a Heaviside function centered at x0 with a defined width
-H1 = heaviside(x - center + 0.5*width);
-H2 = heaviside(-x + center + 0.5*width);
+H1 = curve_heaviside(x - center + 0.5*width);
+H2 = curve_heaviside(-x + center + 0.5*width);
 % -- Scaling the curve profile to match the desired peak
 y = H1 + H2;
 y = y - min(y(:));

@@ -20,7 +20,7 @@ if isempty(center); center = 0; end
 if isempty(amplitude); amplitude = 1; end
 %% - 1 - Determination of the curve intensities
 % -- Extract a Heaviside function centered at x0
-H2      = heaviside(-x + center);
+H2      = curve_heaviside(-x + center);
 % -- Scaling the curve profile to match the desired amplitude of I0
 y    = H2;
 y    = y - min(y(:));
