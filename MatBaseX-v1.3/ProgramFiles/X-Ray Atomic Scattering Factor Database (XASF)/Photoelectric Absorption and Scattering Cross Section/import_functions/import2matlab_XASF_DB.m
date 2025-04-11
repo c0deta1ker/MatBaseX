@@ -13,7 +13,8 @@ ATOM_CMP   = read_mpd_compounds();          % -- List of all compounds
 MAT_SYMB   = horzcat(ATOM_ELE, ATOM_CMP);   % -- List of all elements & compounds
 % -- Plotting IMFP of all elements
 for i = 1:length(MAT_SYMB)
-    save_fullname = path_fig_save + sprintf("id%i_%s_XASF", i, MAT_SYMB{i});
+    mat_props = get_mpd_props(MAT_SYMB{i});
+    save_fullname = path_fig_save + sprintf("id%i_%s_XASF", mat_props.id, MAT_SYMB{i});
     [fig, ~] = view_xasf(MAT_SYMB{i});
     print(save_fullname,'-dpng', '-r500');
     saveas(fig, save_fullname, 'fig');
