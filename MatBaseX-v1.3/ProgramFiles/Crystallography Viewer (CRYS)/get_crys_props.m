@@ -1,5 +1,5 @@
-function [realStr, reciStr] = get_crystal_props(crystal_args, plot_results)
-% [realStr, reciStr] = get_crystal_props(crystal_args, plot_results)
+function [realStr, reciStr] = get_crys_props(crystal_args, plot_results)
+% [realStr, reciStr] = get_crys_props(crystal_args, plot_results)
 %   This is a function that extracts the crystallographic vectors
 %   of a general crystal structure in both real- and reciprocal-
 %   space based on the inputs. All 14 Bravais lattices can be 

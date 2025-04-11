@@ -32,7 +32,8 @@ formula     = parse_chemical_formula(material);
 mu_T        = zeros(size(hv));
 for i = 1:length(formula)
     mu_a         = calc_xasf_atom_absorb_coeff(hv, formula(i).element);
-    xq           = formula(i).ratio;
+    % xq           = formula(i).ratio;
+    xq           = formula(i).quantity;
     mu_T         = mu_T + xq.*mu_a;
 end
 %% 2 - Calculate the mass absorption coefficient

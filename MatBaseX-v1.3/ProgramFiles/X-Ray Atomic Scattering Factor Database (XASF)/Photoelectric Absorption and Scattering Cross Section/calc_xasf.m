@@ -54,7 +54,8 @@ for i = 1:length(vformula)
         [f1q{i}, f2q{i}]  = calc_xasf_nist2005(hv, vformula(i).element, extrapolate);
     else; msg = 'Formalism not found. One of the following must be used: "Henke1993" or "NIST2005".'; error(msg);
     end
-    xq{i} = vformula(i).ratio;
+    % xq{i} = vformula(i).ratio;
+    xq{i} = vformula(i).quantity;
     f1 = f1 + xq{i}*f1q{i};
     f2 = f2 + xq{i}*f2q{i};
 end
