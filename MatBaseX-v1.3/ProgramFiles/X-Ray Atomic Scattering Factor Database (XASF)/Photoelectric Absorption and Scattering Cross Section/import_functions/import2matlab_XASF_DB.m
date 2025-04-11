@@ -8,12 +8,13 @@ path_matbase    = what('Photoelectric Absorption and Scattering Cross Section');
 path_fig_save   = path_matbase + "\0_figs\";
 % -- Defining all of the variables
 ATOM_ELE   = read_mpd_elements();           % -- List of all elements  
+ATOM_ELE    = ATOM_ELE(1:92);
 ATOM_CMP   = read_mpd_compounds();          % -- List of all compounds
 MAT_SYMB   = horzcat(ATOM_ELE, ATOM_CMP);   % -- List of all elements & compounds
 % -- Plotting IMFP of all elements
 for i = 1:length(MAT_SYMB)
     save_fullname = path_fig_save + sprintf("id%i_%s_XASF", i, MAT_SYMB{i});
-    [fig, ~] = view_xasf(ATOM_ELE{i});
+    [fig, ~] = view_xasf(MAT_SYMB{i});
     print(save_fullname,'-dpng', '-r500');
     saveas(fig, save_fullname, 'fig');
     close all;
@@ -57,3 +58,4 @@ for i = 1:length(ATOM_SYMB)
     print(save_fullname,'-dpng', '-r400');
     close all;
 end
+%% 4 :  Consistency check with c

@@ -48,10 +48,12 @@ xlabel(' Photon Energy [eV] ', 'FontWeight','bold');
 ylabel(' f_1 [e/atom] ', 'FontWeight','bold');
 ax = gca; ax.YScale = 'linear'; ax.XScale = 'log';
 yline(0, 'k-', 'LineWidth',1, 'HandleVisibility','off');
-if ele_indx < 14;       axis([5, 1e5, -20, 20]);
-elseif ele_indx < 29;   axis([5, 1e5, -40, 40]);
-else;                   axis([5, 1e5, -100, 100]);
-end
+xlim([5, 1e5]);
+ylim([-1, 1].*2.*max(ffData.f1{1}(:)));
+% if ele_indx < 14;       axis([5, 1e5, -20, 20]);
+% elseif ele_indx < 29;   axis([5, 1e5, -40, 40]);
+% else;                   axis([5, 1e5, -100, 100]);
+% end
 % - f2
 nexttile(); hold on; grid on; grid minor;
 plot(ffData.hv, ffData.f2{1}, '-', 'linewidth', 1.5, 'color', 'k'); 
