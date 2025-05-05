@@ -13,7 +13,7 @@ function mu = mpd_calc_linear_absorb_coeff(hv, material)
 %   -   material:       char/string of the material; e.g. "Si", "SiO2", "Al2O3"...
 %
 %   OUT:
-%   -   mu:             scalar or vector of the linear attenuation coefficient [cm]
+%   -   mu:             scalar or vector of the linear attenuation coefficient [cm⁻¹]
 %
 %   SEE REFERENCES:
 %       [1] Henke B.L., Gullikson E.M., Davis J.C. X-Ray Interactions: Photoabsorption, Scattering, Transmission, and Reflection at E = 50-30,000 eV, Z = 1-92, Atomic Data and Nuclear Data Tables, 54 (2), 181-342 (1993)
