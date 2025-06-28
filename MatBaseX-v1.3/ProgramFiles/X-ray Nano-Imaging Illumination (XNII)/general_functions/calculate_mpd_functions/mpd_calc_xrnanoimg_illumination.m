@@ -35,9 +35,9 @@ function dataStr = mpd_calc_xrnanoimg_illumination(hv, mat_tf, tf, mat_bp, t_bpu
 
 %% Default parameters
 if nargin < 7; SNR = 5; end
-if nargin < 8; plot_results = 1; end
+if nargin < 8; plot_results = 0; end
 if isempty(SNR); SNR = 5; end
-if isempty(plot_results); plot_results = 1; end
+if isempty(plot_results); plot_results = 0; end
 %% Validity checks on the input parameters
 mat_tf     = string(mat_tf);
 mat_bp     = string(mat_bp);

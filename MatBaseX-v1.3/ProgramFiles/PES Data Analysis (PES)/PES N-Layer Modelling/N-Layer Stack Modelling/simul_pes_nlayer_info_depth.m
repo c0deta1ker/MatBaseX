@@ -127,5 +127,6 @@ if plot_result == 1
         'FontSize', 9, 'color', 'k', 'Units','normalized', 'HorizontalAlignment','left');
     text(0.015, 0.92, sprintf("%s", formalism_imfp),...
         'FontSize', 9, 'color', 'k', 'Units','normalized', 'HorizontalAlignment','left');
+    ax = gca; ax.Layer = "top";
 end
 end

@@ -60,42 +60,41 @@ formalism_xsect     = string(formalism_xsect);
 formalism_imfp      = string(formalism_imfp);
 %% 1 : Determination of the XPS Sensitivity Factor (SF)
 % -- Check that the element is contained within the material
-if find(contains(material, element), 1) == 1
-    % -- Extracting the photoionization XSECTs
-    [sigma, beta, gamma, delta] = calc_xsect(hv, element, corelevel, formalism_xsect, extrapolate);
-    beta(isnan(beta))   = 0; beta(beta<0) = 0;
-    gamma(isnan(gamma)) = 0; gamma(gamma<0) = 0;
-    delta(isnan(delta)) = 0; delta(delta<0) = 0;
-    % -- Extracting the IMFP
-    be          = calc_be(element,corelevel); 
-    if isempty(be) || isnan(isempty(be)); fprintf('Eb not found in any database, defaulting to 0 eV.\n'); be = 0; end
-    ke          = hv - be;
-    imfp        = calc_imfp(ke,formalism_imfp,material);
-    % -- Extracting the ANGULAR ANISOTROPY
-    F           = calc_angle_aniso(formalism_xsect, beta, gamma, delta, theta, phi, P, material);
-    % -- Calculating the SENSITIVITY FACTOR
-    sf          = sigma .* imfp .* F;
-    % -- Saving all the params to a structure for debugging
-    params                      = struct();
-    params.hv                   = hv;
-    params.theta                = theta;
-    params.phi                  = phi;
-    params.P                    = P;
-    params.formalism_xsect      = formalism_xsect;
-    params.formalism_imfp       = formalism_imfp;
-    params.element              = element;
-    params.corelevel            = corelevel;
-    params.material             = material;
-    params.sigma                = sigma;
-    params.beta                 = beta;
-    params.gamma                = gamma;
-    params.delta                = delta;
-    params.be                   = be;
-    params.ke                   = ke;
-    params.imfp                 = imfp;
-    params.FP                   = F;
-else
+if find(contains(material, element), 1) ~= 1
     msg = 'Material does not contain the element selected.'; 
-    error(msg);
+    warning(msg);
 end
+% -- Extracting the photoionization XSECTs
+[sigma, beta, gamma, delta] = calc_xsect(hv, element, corelevel, formalism_xsect, extrapolate);
+beta(isnan(beta))   = 0; beta(beta<0) = 0;
+gamma(isnan(gamma)) = 0; gamma(gamma<0) = 0;
+delta(isnan(delta)) = 0; delta(delta<0) = 0;
+% -- Extracting the IMFP
+be          = calc_be(element,corelevel); 
+if isempty(be) || isnan(isempty(be)); fprintf('Eb not found in any database, defaulting to 0 eV.\n'); be = 0; end
+ke          = hv - be;
+imfp        = calc_imfp(ke,formalism_imfp,material);
+% -- Extracting the ANGULAR ANISOTROPY
+F           = calc_angle_aniso(formalism_xsect, beta, gamma, delta, theta, phi, P, material);
+% -- Calculating the SENSITIVITY FACTOR
+sf          = sigma .* imfp .* F;
+% -- Saving all the params to a structure for debugging
+params                      = struct();
+params.hv                   = hv;
+params.theta                = theta;
+params.phi                  = phi;
+params.P                    = P;
+params.formalism_xsect      = formalism_xsect;
+params.formalism_imfp       = formalism_imfp;
+params.element              = element;
+params.corelevel            = corelevel;
+params.material             = material;
+params.sigma                = sigma;
+params.beta                 = beta;
+params.gamma                = gamma;
+params.delta                = delta;
+params.be                   = be;
+params.ke                   = ke;
+params.imfp                 = imfp;
+params.FP                   = F;
 end
