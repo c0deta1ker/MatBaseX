@@ -29,9 +29,6 @@ be = {}; cls = {};
 for i = 1:length(elements)
     % -- Extracting all binding energies of the selected element
     [be{i}, cls{i}] = calc_be(elements{i}); 
-    % -- Removing all entries that lies outside of the energy limits
-    cls{i}(be{i}<energy_lims(1)) = []; be{i}(be{i}<energy_lims(1)) = [];
-    cls{i}(be{i}>energy_lims(2)) = []; be{i}(be{i}>energy_lims(2)) = [];
 end
 %% 2 - Ensuring consistency in parity and energy limits
 if parity == -1
@@ -40,6 +37,11 @@ if parity == -1
 elseif parity == +1
     energy_lims = sort(+1 .* abs(energy_lims));
     for i = 1:length(be); be{i} = +1 .* be{i}; end
+end
+% -- Removing all entries that lies outside of the energy limits
+for i = 1:length(elements)
+    cls{i}(be{i}<energy_lims(1)) = []; be{i}(be{i}<energy_lims(1)) = [];
+    cls{i}(be{i}>energy_lims(2)) = []; be{i}(be{i}>energy_lims(2)) = [];
 end
 %% 3 - Overlaying the binding energy lines
 hold on;
