@@ -5,13 +5,14 @@
 Additional features include PES N-Layer Simulations, which utilizes the Beer-Lambert law to compute intensities for a user-defined heterostructure, and a PES Curve Fitting App that allows users to quickly load in experimental data (two-column text file containing binding energy and intensity values) and determine the best fit. By integrating all these advanced databases, calculators, and analytical tools, MatBaseX helps researchers streamline workflows and enhance the precision of their data analysis. [Download MatBaseX](https://github.com/c0deta1ker/MatBaseX/releases/download/v1.3/MatBaseX_Installer_Web.exe) today to explore its powerful capabilities!    
 
 ## Installation  
-1. Download the *MatBaseX* repository.
+1. Download the *MatBaseX* repository from GitHub.
 2. Open MATLAB and use *Set Path* in the *Home* tab to add the *MatBaseX* repository and all its sub-folders into its saved search paths.
 3. Make sure you also use *Set Path* to add the repository / folder that contains all of your data to be loaded in.
-4. Type 'MatBaseX' in the MATLAB Command Prompt to boot up the Main Menu App.
+4. Type 'MatBaseX' in the MATLAB Command Prompt to boot up the Main Menu App.  
 
-Or, simply download & install the standalone app via the executable file [here](https://github.com/c0deta1ker/MatBaseX/releases/download/v1.3/MatBaseX_Installer_Web.exe)!
+Or, simply download & install the standalone app via the executable file [here](https://github.com/c0deta1ker/MatBaseX/releases/download/v1.3/MatBaseX_Installer_Web.exe)!  
 
+Or, download & install a [MatBaseX-Lite](https://github.com/c0deta1ker/MatBaseX-Lite), a streamlined, light version of the MATLAB-based suite. This edition offers the full functionality of the original, with all Apps and functions accessible directly within the MATLAB environment. However, all tutorials, examples, and figures have been removed from this repository, reducing the download size to approximately 200 MB.   
 
 ## Snapshot of MatBaseX Apps
 **(1) MatBase Main Menu**: The main-menu that provides seamless navigation to all available applications. Accessible in MATLAB by typing 'MatBaseX' in the command prompt.   
