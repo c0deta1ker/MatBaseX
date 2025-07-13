@@ -91,7 +91,7 @@ elseif isrow(xdat) && iscolumn(ydat); xdat = xdat';
 elseif isrow(xdat) && isrow(ydat); xdat = xdat'; ydat = ydat';
 end
 %% - 1 - Background subtraction of data
-[X, D, B] = PES_BgrndSubCurve(xdat, ydat, bType, bParams{:});
+[X, D, B] = pes_bgrnd(xdat, ydat, bType, bParams{:});
 %% - 2 - Extracting all model data
 % -- Total number of states to be fitted
 nStates     = length(cType);
@@ -101,7 +101,7 @@ M           = zeros(size(X));      	% XPS model data
 % -- Filing through all curve components and extracting them seperately
 cYY = [];
 for i = 1:nStates
-   	cYY(:,i) = PES_SpecIntCurve(X, cType(i),...
+   	cYY(:,i) = pes_spec_int(X, cType(i),...
         cParams{1}(i,1), cParams{1}(i,2), cParams{1}(i,3),...
         cParams{1}(i,4), cParams{1}(i,5), cParams{1}(i,6),...
         cParams{1}(i,7), cParams{1}(i,8));
