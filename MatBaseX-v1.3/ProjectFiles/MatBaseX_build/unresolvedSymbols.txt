@@ -1,0 +1,2 @@
+Path	Symbol	Reason
+MatBaseX\ProgramFiles\Curve Shapes Library (CS-LIB)\general_functions\generic_curve_shapes\peak_like_shapes\curve_voigt.m	sym	undeployable
