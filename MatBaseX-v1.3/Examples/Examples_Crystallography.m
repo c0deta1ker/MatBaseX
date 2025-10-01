@@ -3,28 +3,28 @@ close all; clear all;
 run MatBaseX_02_CrystallographyViewer;
 %% 2    :   CUB-cP-Oh    :    Simple Cubic (sc) 
 close all; clear all;
-[realStr, reciStr] = get_crystal_props("CUB-cP-Oh", 1);
+[realStr, reciStr] = get_crys_props("CUB-cP-Oh", 1);
 get_bz_slice(reciStr, [1,0,0], 1);
 get_bz_slice(reciStr, [0,1,0], 1);
 get_bz_slice(reciStr, [0,0,1], 1);
 bzSlice = get_bz_slice(reciStr, [1,1,0], 1)
 %% 3    :   CUB-cF-Oh  :    Face-Centered Cubic (fcc)
 close all; clear all;
-[realStr, reciStr] = get_crystal_props("CUB-cF-Oh", 1);
+[realStr, reciStr] = get_crys_props("CUB-cF-Oh", 1);
 get_bz_slice(reciStr, [1,0,0], 1);
 get_bz_slice(reciStr, [0,1,0], 1);
 get_bz_slice(reciStr, [0,0,1], 1);
 bzSlice = get_bz_slice(reciStr, [1,1,0], 1)
 %% 4    :   CUB-cI-Oh   :    Body-Centered Cubic (bcc)
 close all; clear all;
-[realStr, reciStr] = get_crystal_props("CUB-cI-Oh", 1);
+[realStr, reciStr] = get_crys_props("CUB-cI-Oh", 1);
 bzSlice = get_bz_slice(reciStr, [1,0,0], 1);
 bzSlice = get_bz_slice(reciStr, [0,1,0], 1);
 bzSlice = get_bz_slice(reciStr, [0,0,1], 1);
 bzSlice = get_bz_slice(reciStr, [1,1,0], 1);
 %% 5    :   HEX-hP-D6h    :    Hexagonal (hex)
 close all; clear all;
-[realStr, reciStr] = get_crystal_props("HEX-hP-D6h", 1);
+[realStr, reciStr] = get_crys_props("HEX-hP-D6h", 1);
 bzSlice = get_bz_slice(reciStr, [1,0,0], 1);
 bzSlice = get_bz_slice(reciStr, [0,1,0], 1);
 bzSlice = get_bz_slice(reciStr, [0,0,1], 1);
@@ -32,7 +32,7 @@ bzSlice = get_bz_slice(reciStr, [0,0,1], 1);
 %% Brilluoin Zone slices : Linear Transformations
 %% 6    :   CUB-cP-Oh    :    Simple Cubic (sc)
 close all; clear all;
-[realStr, reciStr] = get_crystal_props("CUB-cP-Oh", 1);
+[realStr, reciStr] = get_crys_props("CUB-cP-Oh", 1);
 get_bz_slice(reciStr, [0,0,1], 1);
 bzSlice         = get_bz_slice(reciStr, [1,1,0], 1);
 bzSlice_rot     = rotate_bz_slice(bzSlice, {35}, 1);
