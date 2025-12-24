@@ -1,0 +1,64 @@
+close all; clear all;
+path_matbase    = what('1991Perkins_AugerEnergies'); path_matbase = string(path_matbase.path);
+path_data       = path_matbase + "\data\";
+path_data_save  = path_matbase + "\";
+path_fig_save   = path_matbase + "\figs\";
+
+%% 1 :  Defining all of the variables
+% -- Defining the elements whose photoionization cross-sections are available
+ATOM_SYMB = read_mpd_elements();
+ATOM_SYMB = ATOM_SYMB(3:93);
+%% 2 :  Loading in Auger Energies (eV)
+% -- Extracting all the filenames for the photoionization data
+file_names              = dir(path_data);
+file_names              = {file_names(~[file_names.isdir]).name};
+% -- Filing through all the elements to isolate each element
+file_names_all          = strings(length(file_names),1);
+for i = 1:length(ATOM_SYMB)
+    % --- Finding the index number for the element
+    findx               = find(contains(file_names, "_"+string(ATOM_SYMB{i}+"_")));
+    selected_names      = file_names(findx);
+    % --- Appending the filename to a cell array
+    file_names_all(i)   = string(selected_names{1});
+end
+% -- Loading in all the data for each data file
+DATA_TABLE = {}; 
+for i = 1:length(ATOM_SYMB)
+    raw_table           = readtable(string(path_data) + string(file_names_all(i)),...
+        'FileType','text', 'Delimiter',' ', 'MultipleDelimsAsOne',true);
+    raw_table(:,end)    = [];
+    raw_table.Properties.VariableNames{1} = 'Auger_Transition';
+    raw_table.Properties.VariableNames{2} = 'Auger_Energies_KE';
+    raw_table.Properties.VariableNames{3} = 'Norm_Mult';
+    raw_table.Auger_Transition = string(raw_table.Auger_Transition);
+    raw_table.Norm_Mult = raw_table.Norm_Mult ./ 100;
+    DATA_TABLE{1,i}     = raw_table;
+end
+%% 3 :  Creating data-structure to store all data
+ATOM_SYMB = read_mpd_elements();
+ATOM_SYMB = ATOM_SYMB(1:93);
+ATOM_ZNUM = 1:93;
+AUGER_DATA = {};
+for i = 1:length(ATOM_ZNUM)
+    if i < 3;   AUGER_DATA{i} = DATA_TABLE{1}; AUGER_DATA{i}{1,2} = 0;
+    else;       AUGER_DATA{i} = DATA_TABLE{i-2};
+    end
+end
+% -- Saving the data to a MATLAB data structure
+AE_DB_Perkins1991                   = struct();
+AE_DB_Perkins1991.ATOM_SYMB         = ATOM_SYMB;
+AE_DB_Perkins1991.ATOM_ZNUM         = ATOM_ZNUM;
+AE_DB_Perkins1991.AUGER_DATA        = AUGER_DATA;
+save(char(path_data_save + "AE_DB_Perkins1991"), 'AE_DB_Perkins1991', '-v7.3');
+AE_DB_Perkins1991
+%% 4 :  Running through all elements and plotting the binding energy spectra
+% close all;
+hv = 2000;
+for i = 82 % ATOM_ZNUM
+    save_fullname = path_fig_save + sprintf("Z%i_%s_AE_Perkins1991", ATOM_ZNUM(i), ATOM_SYMB{i});
+    calc_auger_perkins1991(ATOM_SYMB{i}, hv, 1);
+    print(save_fullname,'-dpng', '-r400');
+    figX = gca;
+    saveas(figX, save_fullname, 'fig');
+    % close all;
+end

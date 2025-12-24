@@ -1,0 +1,86 @@
+function [auger_transition, auger_energy_ke, auger_energy_be, auger_norm_mult] = calc_auger_perkins1991(element, hv, plot_results)
+% [auger_transition, auger_energy_ke, auger_energy_be, auger_norm_mult] = calc_auger_perkins1991(element, hv, plot_results)
+%   This function extracts Auger electron kinetic and binding energies
+%   for elements with atomic numbers Z = 1–93, based on the tabulated data
+%   from S. T. Perkins et al. [1]. The dataset has been digitized here for
+%   direct use within MATLAB.
+%   [1] S.T.Perkins, D.E.Cullen, et al., Tables and graphs of atomic 
+%       sub-shell and relaxation data derived from the LLNL Evaluated Atomic Data Library (EADL), 
+%       Z = 1--100 Lawrence Livermore National Laboratory, UCRL-50400, Vol. 30
+%
+%   IN:
+%   -   element:    	string of the element; e.g. "H", "He", "Si", "In"...
+%   -   hv:             scalar of the incident photon energies [eV].
+%   -   plot_results:   if 1, will plot figure summary, otherwise it wont.
+%
+%   OUT:
+%   -   auger_transition:   M×1 vector of the Auger transition labels.
+%   -   auger_energy_ke:    M×1 vector of the Auger kinetic energies [eV].
+%   -   auger_energy_be:    M×1 vector of the Auger binding energies, calculated using the input hv [eV].
+%   -   auger_norm_mult:    M×1 vector of the Auger normalization multiplier [unitless].
+
+%% Default parameters
+if nargin < 2; hv = [];  end
+if nargin < 3; plot_results = 0;  end
+if isempty(hv); hv = []; end
+if isempty(plot_results); plot_results = 0; end
+%% Validity checks on the input parameters
+element     = string(element);
+hv          = double(hv);
+%% 1 - Loading the MATLAB data structure
+AE_DB_Perkins1991	= load('AE_DB_Perkins1991.mat'); AE_DB_Perkins1991 = AE_DB_Perkins1991.AE_DB_Perkins1991;
+ATOM_SYMB           = string(AE_DB_Perkins1991.ATOM_SYMB);
+AUGER_DATA          = AE_DB_Perkins1991.AUGER_DATA;
+%% 2 - Find the database index of the defined element
+ele_indx 	= find(strcmpi(ATOM_SYMB, element), 1);
+if isempty(ele_indx); msg = 'Element could not be identified. Only use atomic-symbols for elements 1 - 93; H, He, Li, Be..., U, Np'; error(msg); end
+%% 3 - Find the database values of the defined element
+T = AUGER_DATA{ele_indx};
+% If no photon energy is defined, use all available ones
+if isempty(hv) || hv == 0 || hv < 0
+    auger_transition    = T.Auger_Transition;
+    auger_energy_ke     = T.Auger_Energies_KE;
+    auger_energy_be     = auger_energy_ke;
+    auger_norm_mult     = T.Norm_Mult;
+% Otherwise, parse the input
+else
+    rows_to_delete          = T.Auger_Energies_KE > hv;
+    T(rows_to_delete, :)    = [];
+    auger_transition        = T.Auger_Transition;
+    auger_energy_ke         = T.Auger_Energies_KE;
+    auger_energy_be         = hv - auger_energy_ke;
+    auger_norm_mult         = T.Norm_Mult;
+end
+%% -- Plot for debugging
+if plot_results == 1
+    nAE = length(auger_energy_be);
+    % - Creating a figure
+    fig = figure(); 
+    fig.Position(1) = 100; fig.Position(2) = 100;
+    fig.Position(3) = 800; 
+    fig.Position(4) = 350;
+    % - Creating a tiled axis
+    t = tiledlayout(1,1);
+    t.TileSpacing = 'compact';
+    t.Padding = 'compact';
+    % - Plot the figure
+    nexttile(); hold on; grid on; grid minor;
+    for i = 1:nAE; text(auger_energy_be(i), auger_norm_mult(i), sprintf('%s(%.2f)', auger_transition(i), auger_energy_be(i)), 'Rotation',45, 'FontWeight','bold', 'FontSize',7); end
+    for i = 1:nAE; stem(auger_energy_be(i), auger_norm_mult(i), '-', 'linewidth', 1.25, 'marker', 'none', 'color', 'b');end 
+    % - Formatting the axis
+    text(0.02, 0.96, sprintf("%s(Z=%i)", element, ele_indx),...
+        'FontSize', 12, 'color', 'k', 'Units','normalized', 'FontWeight', 'bold', 'HorizontalAlignment','left');
+    text(0.02, 0.91, sprintf("Perkins(1991)"),...
+        'FontSize', 8, 'color', 'k', 'Units','normalized', 'HorizontalAlignment','left');
+    if isempty(hv); xlabel('Kinetic Energy [eV]', 'FontWeight','bold');
+    else        
+        xlabel('Binding Energy [eV]', 'FontWeight','bold');
+        xline(hv(1), 'r-', 'linewidth', 1.5);
+        text(0.02, 0.87, sprintf("hv = %.0f eV", hv(1)),...
+            'FontSize', 8, 'color', 'k', 'Units','normalized', 'HorizontalAlignment','left');
+    end
+    ylabel(' Intensity [arb.] ', 'FontWeight','bold');
+    ax = gca; ax.YScale = 'linear'; ax.XScale = 'log';
+    axis([1, 130000, 0, 1.40]);
+end
+end
