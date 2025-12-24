@@ -1,0 +1,6 @@
+X-ray absorption edges for Ne
+  Edge  	  Energy (eV)  	  Width (eV)	  Fluorescence Yield	  Edge Jump
+    K	  870.2	  0.240	  0.01600	  13.610
+    L1	  48.5	  0.100	  0.00000	  1.000
+    L2	  21.7	  0.000	  0.00000	  1.000
+    L3	  21.6	  0.000	  0.00000	  1.000

@@ -1,0 +1,6 @@
+X-ray absorption edges for N
+  Edge  	  Energy (eV)  	  Width (eV)	  Fluorescence Yield	  Edge Jump
+    K	  409.9	  0.116	  0.00310	  17.440
+    L1	  37.3	  0.290	  0.00000	  1.000
+    L2	  17.5	  0.006	  0.00000	  1.000
+    L3	  17.5	  0.006	  0.00000	  1.000
