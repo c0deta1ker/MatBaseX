@@ -57,7 +57,7 @@ hv = [];
 for i = ATOM_ZNUM
     save_fullname = path_fig_save + sprintf("Z%i_%s_AE_Perkins1991", ATOM_ZNUM(i), ATOM_SYMB{i});
     calc_auger_perkins1991(ATOM_SYMB{i}, hv, 1);
-    print(save_fullname,'-dpng', '-r400');
+    print(save_fullname,'-dpng', '-r300');
     % figX = gca; saveas(figX, save_fullname, 'fig');
     close all;
 end
