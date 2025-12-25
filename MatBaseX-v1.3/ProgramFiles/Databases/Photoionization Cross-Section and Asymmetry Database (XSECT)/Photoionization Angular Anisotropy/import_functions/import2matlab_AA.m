@@ -114,7 +114,7 @@ ATOM_SYMB = ATOM_SYMB(1:98);
 ATOM_ZNUM = 1:length(ATOM_SYMB);
 XS_DB_Trzh2018	= load('XS_DB_Trzh2018.mat'); XS_DB_Trzh2018 = XS_DB_Trzh2018.XS_DB_Trzh2018;
 % -- Filing through all elements and core-levels
-for i = 1:length(ATOM_SYMB)
+for i = 40:length(ATOM_SYMB)
     DataTable = XS_DB_Trzh2018.XSECT_SIGMA{i};
     CoreLevels = DataTable.Properties.VariableNames;
     for j = 1:length(CoreLevels)
@@ -125,5 +125,6 @@ for i = 1:length(ATOM_SYMB)
         save_fullname = path_fig_save + sprintf("Z%i_%i_%s%s_XSECT-ANISO", ATOM_ZNUM(i), j, ATOM_SYMB{i}, CoreLevels{j});
         print(save_fullname,'-dpng', '-r300');
         % saveas(figX, save_fullname, 'fig');
+        close all;
     end
 end
