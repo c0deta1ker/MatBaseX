@@ -230,10 +230,10 @@ fitStr.MINFUN   = minimize_function(params, FDDObj);
 fitStr.DoF   	= DoF;
 %% 4.3 - Storing the final fit variables of each PES curve component
 fitStr.XX           = linspace(min(fitStr.X(:))-1, max(fitStr.X(:))+1, 1e3)';
-if fitStr.fddType == "FDD"; fitStr.YY = params(7).*ThermalModel_FDD(fitStr.XX, params(1), params(2));
-elseif fitStr.fddType == "FDDG"; fitStr.YY = params(7).*ThermalModel_FDDG(fitStr.XX, params(1), params(2), params(3), params(4));
-elseif fitStr.fddType == "FDDGpL"; fitStr.YY = params(7).*ThermalModel_FDDGpL(fitStr.XX, params(1), params(2), params(3), params(4), params(5), params(6));
-elseif fitStr.fddType == "FDDGsL"; fitStr.YY = params(7).*ThermalModel_FDDGsL(fitStr.XX, params(1), params(2), params(3), params(4), params(5), params(6));
+if fitStr.fddType == "FDD"; fitStr.YY = params(7).*curve_thermal_FDD(fitStr.XX, params(1), params(2));
+elseif fitStr.fddType == "FDDG"; fitStr.YY = params(7).*curve_thermal_FDDG(fitStr.XX, params(1), params(2), params(3), params(4));
+elseif fitStr.fddType == "FDDGpL"; fitStr.YY = params(7).*curve_thermal_FDDGpL(fitStr.XX, params(1), params(2), params(3), params(4), params(5), params(6));
+elseif fitStr.fddType == "FDDGsL"; fitStr.YY = params(7).*curve_thermal_FDDGsL(fitStr.XX, params(1), params(2), params(3), params(4), params(5), params(6));
 end
 % --- Storing the best fit parameters
 fitStr.params   = params;
@@ -300,10 +300,10 @@ end
 
 %% DEFINING THE FUNCTION THAT DETERMINES THE FDD CURVE FIT
 function M = fit_model(x, FDDObj)
-    if FDDObj.fit_args.fddType == "FDD"; M = ThermalModel_FDD(FDDObj.roi_xdat, x(1), x(2));
-    elseif FDDObj.fit_args.fddType == "FDDG"; M = ThermalModel_FDDG(FDDObj.roi_xdat, x(1), x(2), x(3), x(4));
-    elseif FDDObj.fit_args.fddType == "FDDGpL"; M = ThermalModel_FDDGpL(FDDObj.roi_xdat, x(1), x(2), x(3), x(4), x(5), x(6));
-    elseif FDDObj.fit_args.fddType == "FDDGsL"; M = ThermalModel_FDDGsL(FDDObj.roi_xdat, x(1), x(2), x(3), x(4), x(5), x(6));
+    if FDDObj.fit_args.fddType == "FDD"; M = curve_thermal_FDD(FDDObj.roi_xdat, x(1), x(2));
+    elseif FDDObj.fit_args.fddType == "FDDG"; M = curve_thermal_FDDG(FDDObj.roi_xdat, x(1), x(2), x(3), x(4));
+    elseif FDDObj.fit_args.fddType == "FDDGpL"; M = curve_thermal_FDDGpL(FDDObj.roi_xdat, x(1), x(2), x(3), x(4), x(5), x(6));
+    elseif FDDObj.fit_args.fddType == "FDDGsL"; M = curve_thermal_FDDGsL(FDDObj.roi_xdat, x(1), x(2), x(3), x(4), x(5), x(6));
     end
     M = x(7).*M;
     M(isnan(M)) = 0; if size(M, 2) > 1; M = M'; end
@@ -311,10 +311,10 @@ end
 
 %% DEFINING THE FINAL FUNCTION THAT DESCRIBES THE FDD CURVE TO BE FITTED
 function M = full_fdd_function(x, xdat, FDDObj)
-    if FDDObj.fit_args.fddType == "FDD"; M = ThermalModel_FDD(xdat, x(1), x(2));
-    elseif FDDObj.fit_args.fddType == "FDDG"; M = ThermalModel_FDDG(xdat, x(1), x(2), x(3), x(4));
-    elseif FDDObj.fit_args.fddType == "FDDGpL"; M = ThermalModel_FDDGpL(xdat, x(1), x(2), x(3), x(4), x(5), x(6));
-    elseif FDDObj.fit_args.fddType == "FDDGsL"; M = ThermalModel_FDDGsL(xdat, x(1), x(2), x(3), x(4), x(5), x(6));
+    if FDDObj.fit_args.fddType == "FDD"; M = curve_thermal_FDD(xdat, x(1), x(2));
+    elseif FDDObj.fit_args.fddType == "FDDG"; M = curve_thermal_FDDG(xdat, x(1), x(2), x(3), x(4));
+    elseif FDDObj.fit_args.fddType == "FDDGpL"; M = curve_thermal_FDDGpL(xdat, x(1), x(2), x(3), x(4), x(5), x(6));
+    elseif FDDObj.fit_args.fddType == "FDDGsL"; M = curve_thermal_FDDGsL(xdat, x(1), x(2), x(3), x(4), x(5), x(6));
     end
     M = x(7).*M;
     M(isnan(M)) = 0; if size(M, 2) > 1; M = M'; end

@@ -79,7 +79,6 @@ end
 % - Labeling the x- and y-axes
 text(0.02, 0.96, sprintf("%s", formula),...
     'FontSize', 12, 'color', 'k', 'Units','normalized', 'FontWeight', 'bold', 'HorizontalAlignment','left');
-
 xlabel('Binding Energy [eV]', 'FontWeight','bold');
 ylabel('Relative Intensity [arb.]', 'FontWeight','bold');
 ax = gca; ax.YScale = 'linear'; ax.XScale = 'log';

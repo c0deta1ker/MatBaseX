@@ -72,11 +72,12 @@ t.Padding = 'compact';
 % - Plot the figure
 nexttile(); hold on; grid on; grid minor;
 for i = 1:num_of_elements
-    for j = 1:length(be{i})
-        nCL         = length(cls{i});
-        colorList   = read_be_core_levels_color(cls{i});
-        for k = 1:nCL; stem(be{i}(k), rsigma{i}(k), '-', 'linewidth', 2.0, 'marker', 'none', 'color', colorList{k});end 
-        for k = 1:nCL; text(be{i}(k), rsigma{i}(k), sprintf('%s%s(%.2f)', elements{i}, cls{i}(k), be{i}(k)), 'Rotation',90, 'FontWeight','normal', 'FontSize',8, 'color', colorList{k}); end
+    nCL         = length(cls{i});
+    colorList   = read_be_core_levels_color(cls{i});
+    for j = 1:nCL
+        text(be{i}(j), rsigma{i}(j), sprintf('%s%s(%.2f)', elements{i}, cls{i}(j), be{i}(j)),...
+            'Rotation',90, 'FontWeight','normal', 'FontSize',8, 'color', colorList{j});
+        stem(be{i}(j), rsigma{i}(j), '-', 'linewidth', 2.0, 'marker', 'none', 'color', colorList{j});  
     end
 end
 % - Labeling the x- and y-axes

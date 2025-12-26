@@ -116,14 +116,14 @@ for i = 1:size(xWin, 1)
             if isrow(xx{i}); xx{i} = xx{i}'; end
             if isrow(yy{i}); yy{i} = yy{i}'; end
             % --- Defining the fit function
-            fit_func                = fittype(@(x0, peak, fwhm, x) GaussianModel(x, x0, peak, fwhm));
+            fit_func                = fittype(@(x0, peak, fwhm, x) curve_gaussian(x, x0, peak, fwhm));
             x0_start                = mean(xdat_roi{i}(:));
             peak_start              = max(ydat_roi{i}(:));
             fwhm_start              = 0.5*range(xdat_roi{i}(:));
             % --- Executing the fitting operation
             [fit1,~,~]	            = fit(xx{i},yy{i},fit_func,'start',[x0_start, peak_start, fwhm_start]);
             params    	            = coeffvalues(fit1);
-            yy{i}	                = GaussianModel(xx{i}, params(1), params(2), params(3));
+            yy{i}	                = curve_gaussian(xx{i}, params(1), params(2), params(3));
             [yVal(i), maxInd]	    = max(yy{i}(:));
             xVal(i)           	    = xx{i}(maxInd);
         % -- Finding the maximum peak value by fitting a lorentzian
@@ -134,14 +134,14 @@ for i = 1:size(xWin, 1)
             if isrow(xx{i}); xx{i} = xx{i}'; end
             if isrow(yy{i}); yy{i} = yy{i}'; end
             % --- Defining the fit function
-            fit_func                = fittype(@(x0, peak, fwhm, x) LorentzianModel(x, x0, peak, fwhm));
+            fit_func                = fittype(@(x0, peak, fwhm, x) curve_lorentzian(x, x0, peak, fwhm));
             x0_start                = mean(xdat_roi{i}(:));
             peak_start              = max(ydat_roi{i}(:));
             fwhm_start              = 0.5*range(xdat_roi{i}(:));
             % --- Executing the fitting operation
             [fit1,~,~]	            = fit(xx{i},yy{i},fit_func,'start',[x0_start, peak_start, fwhm_start]);
             params    	            = coeffvalues(fit1);
-            yy{i}	                = LorentzianModel(xx{i}, params(1), params(2), params(3));
+            yy{i}	                = curve_lorentzian(xx{i}, params(1), params(2), params(3));
             [yVal(i), maxInd]	    = max(yy{i}(:));
             xVal(i)           	    = xx{i}(maxInd);
         % -- Finding the maximum peak value by fitting a summed voigt
@@ -152,7 +152,7 @@ for i = 1:size(xWin, 1)
             if isrow(xx{i}); xx{i} = xx{i}'; end
             if isrow(yy{i}); yy{i} = yy{i}'; end
             % --- Defining the fit function
-            fit_func                = fittype(@(x0, peak, fwhm, mr, x) PseudoVoigtModel_sGL(x, x0, peak, fwhm, mr));
+            fit_func                = fittype(@(x0, peak, fwhm, mr, x) curve_pseudo_voigt_sGL(x, x0, peak, fwhm, mr));
             x0_start                = mean(xdat_roi{i}(:));
             peak_start              = max(ydat_roi{i}(:));
             fwhm_start              = 0.5*range(xdat_roi{i}(:));
@@ -160,7 +160,7 @@ for i = 1:size(xWin, 1)
             % --- Executing the fitting operation
             [fit1,~,~]	            = fit(xx{i},yy{i},fit_func,'start',[x0_start, peak_start, fwhm_start, mr_start]);
             params    	            = coeffvalues(fit1);
-            yy{i}	                = PseudoVoigtModel_sGL(xx{i}, params(1), params(2), params(3), params(4));
+            yy{i}	                = curve_pseudo_voigt_sGL(xx{i}, params(1), params(2), params(3), params(4));
             [yVal(i), maxInd]	    = max(yy{i}(:));
             xVal(i)           	    = xx{i}(maxInd);
         % -- Finding the maximum peak value by fitting a multiplied voigt
@@ -171,7 +171,7 @@ for i = 1:size(xWin, 1)
             if isrow(xx{i}); xx{i} = xx{i}'; end
             if isrow(yy{i}); yy{i} = yy{i}'; end
             % --- Defining the fit function
-            fit_func                = fittype(@(x0, peak, fwhm, mr, x) PseudoVoigtModel_pGL(x, x0, peak, fwhm, mr));
+            fit_func                = fittype(@(x0, peak, fwhm, mr, x) curve_pseudo_voigt_pGL(x, x0, peak, fwhm, mr));
             x0_start                = mean(xdat_roi{i}(:));
             peak_start              = max(ydat_roi{i}(:));
             fwhm_start              = 0.5*range(xdat_roi{i}(:));
@@ -179,7 +179,7 @@ for i = 1:size(xWin, 1)
             % --- Executing the fitting operation
             [fit1,~,~]	            = fit(xx{i},yy{i},fit_func,'start',[x0_start, peak_start, fwhm_start, mr_start]);
             params    	            = coeffvalues(fit1);
-            yy{i}	                = PseudoVoigtModel_pGL(xx{i}, params(1), params(2), params(3), params(4));
+            yy{i}	                = curve_pseudo_voigt_pGL(xx{i}, params(1), params(2), params(3), params(4));
             [yVal(i), maxInd]	    = max(yy{i}(:));
             xVal(i)           	    = xx{i}(maxInd);
         % -- Finding the maximum peak value by fitting a summed, asymmetric voigt
@@ -190,7 +190,7 @@ for i = 1:size(xWin, 1)
             if isrow(xx{i}); xx{i} = xx{i}'; end
             if isrow(yy{i}); yy{i} = yy{i}'; end
             % --- Defining the fit function
-            fit_func                = fittype(@(x0, peak, fwhm, mr, asym, x) PseudoVoigtModel_sGLA(x, x0, peak, fwhm, mr, asym));
+            fit_func                = fittype(@(x0, peak, fwhm, mr, asym, x) curve_pseudo_voigt_sGLA(x, x0, peak, fwhm, mr, asym));
             x0_start                = mean(xdat_roi{i}(:));
             peak_start              = max(ydat_roi{i}(:));
             fwhm_start              = 0.5*range(xdat_roi{i}(:));
@@ -199,7 +199,7 @@ for i = 1:size(xWin, 1)
             % --- Executing the fitting operation
             [fit1,~,~]	            = fit(xx{i},yy{i},fit_func,'start',[x0_start, peak_start, fwhm_start, mr_start, asym_start]);
             params    	            = coeffvalues(fit1);
-            yy{i}	                = PseudoVoigtModel_sGLA(xx{i}, params(1), params(2), params(3), params(4), params(5));
+            yy{i}	                = curve_pseudo_voigt_sGLA(xx{i}, params(1), params(2), params(3), params(4), params(5));
             [yVal(i), maxInd]	    = max(yy{i}(:));
             xVal(i)           	    = xx{i}(maxInd);
         % -- Finding the maximum peak value by fitting a multiplied, asymmetric voigt
@@ -210,7 +210,7 @@ for i = 1:size(xWin, 1)
             if isrow(xx{i}); xx{i} = xx{i}'; end
             if isrow(yy{i}); yy{i} = yy{i}'; end
             % --- Defining the fit function
-            fit_func                = fittype(@(x0, peak, fwhm, mr, asym, x) PseudoVoigtModel_pGLA(x, x0, peak, fwhm, mr, asym));
+            fit_func                = fittype(@(x0, peak, fwhm, mr, asym, x) curve_pseudo_voigt_pGLA(x, x0, peak, fwhm, mr, asym));
             x0_start                = mean(xdat_roi{i}(:));
             peak_start              = max(ydat_roi{i}(:));
             fwhm_start              = 0.5*range(xdat_roi{i}(:));
@@ -219,7 +219,7 @@ for i = 1:size(xWin, 1)
             % --- Executing the fitting operation
             [fit1,~,~]	            = fit(xx{i},yy{i},fit_func,'start',[x0_start, peak_start, fwhm_start, mr_start, asym_start]);
             params    	            = coeffvalues(fit1);
-            yy{i}	                = PseudoVoigtModel_pGLA(xx{i}, params(1), params(2), params(3), params(4), params(5));
+            yy{i}	                = curve_pseudo_voigt_pGLA(xx{i}, params(1), params(2), params(3), params(4), params(5));
             [yVal(i), maxInd]	    = max(yy{i}(:));
             xVal(i)           	    = xx{i}(maxInd);
         % -- Peak finder type not recognised

@@ -86,11 +86,12 @@ t.Padding = 'compact';
 % - Plot the figure
 nexttile(); hold on; grid on; grid minor;
 for i = 1:num_of_elements
-    for j = 1:length(edge_energy{i})
-        nCL         = length(edge_name{i});
-        colorList   = read_xae_edges_color(edge_name{i});
-        for k = 1:nCL; stem(edge_energy{i}(k), redge_jumps{i}(k), '-', 'linewidth', 1 + edge_width{i}(k)/7, 'marker', 'none', 'color', colorList{k});end 
-        for k = 1:nCL; text(edge_energy{i}(k), redge_jumps{i}(k), sprintf('%s-%s(%.2f)', elements{i}, edge_name{i}(k), edge_energy{i}(k)), 'Rotation',90, 'FontWeight','normal', 'FontSize',8, 'color', colorList{k}); end
+    nCL         = length(edge_name{i});
+    colorList   = read_xae_edges_color(edge_name{i});
+    for j = 1:nCL
+        text(edge_energy{i}(j), redge_jumps{i}(j), sprintf('%s-%s(%.2f)', elements{i}, edge_name{i}(j), edge_energy{i}(j)),...
+            'Rotation',90, 'FontWeight','normal', 'FontSize',8, 'color', colorList{j});
+        stem(edge_energy{i}(j), redge_jumps{i}(j), '-', 'linewidth', 1 + edge_width{i}(j)/7, 'marker', 'none', 'color', colorList{j}); 
     end
 end
 % - Plotting the x- and y-axes

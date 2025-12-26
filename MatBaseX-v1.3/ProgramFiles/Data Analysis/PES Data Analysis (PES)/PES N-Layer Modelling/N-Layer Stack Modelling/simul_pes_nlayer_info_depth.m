@@ -120,7 +120,7 @@ if plot_result == 1
     ylabel('Normalised Intensity', 'FontWeight','bold');
     axis([0, max(lyr_depth(:)), 0, 1.10]);
     legend(fliplr(lgnd_txt), 'location', 'northeast', 'FontSize', 9);
-    crosshair(info_depth, 0.05, 'k:', 'LineWidth',1, 'HandleVisibility','off');
+    plt_crosshair(info_depth, 0.05, 'k:', 'LineWidth',1, 'HandleVisibility','off');
     text(0.015, 0.98, sprintf("I.D = %.2f nm", info_depth(1)),...
         'FontSize', 10, 'FontWeight', 'Bold', 'color', 'k', 'Units','normalized', 'HorizontalAlignment','left');
     text(0.015, 0.95, sprintf("KE = %i eV, \\theta = %i deg.", ke(1), theta(1)),...
