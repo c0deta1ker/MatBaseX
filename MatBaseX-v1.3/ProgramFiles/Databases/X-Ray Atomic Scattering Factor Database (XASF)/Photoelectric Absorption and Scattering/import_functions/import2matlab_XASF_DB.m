@@ -62,7 +62,7 @@ for i = 1:length(ATOM_SYMB)
 end
 %% 4 :  Consistency check with compounds
 % -- Extracting the reference data
-path_data   = path_matbase + "\1993Henke_AtomicScatteringFactors\data_ref\";
+path_data   = path_matbase + "\1993Henke_Atomic\data_ref\";
 path_fig_save   = path_matbase + "\0_figs\ref002_Henke_Compounds\";
 dat_files   = {...
     "Au_Ref_IndexOfRefraction.txt",...
