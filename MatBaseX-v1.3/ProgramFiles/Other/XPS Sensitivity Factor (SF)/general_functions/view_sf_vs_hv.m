@@ -37,7 +37,7 @@ hv_HX    = logspace(3,4,100);
 %% 3 - Extracting the Sensitivity Factor (SF)
 SF_SX = {}; SF_HX = {};
 for i = 1:nCL
-    SF_SX{i}    = calc_sf(element, element, ATOM_CL(i), hv_SX, theta, phi, P, 'Y1985', 'jtp');
+    SF_SX{i}    = calc_sf(element, element, ATOM_CL(i), hv_SX, theta, phi, P, 'YL1985', 'jtp');
     SF_HX{i}    = calc_sf(element, element, ATOM_CL(i), hv_HX, theta, phi, P, 'C2022', 'jtp');
 end
 %% 4 - Plotting the Sensitivity Factor (SF)
