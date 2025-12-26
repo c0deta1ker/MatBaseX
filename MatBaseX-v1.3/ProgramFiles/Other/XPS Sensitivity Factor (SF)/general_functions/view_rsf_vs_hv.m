@@ -70,7 +70,7 @@ text(0.75, 0.05, "Cant (2022)",...
 % - Formatting the axis
 legend(ATOM_CL, 'location', 'eastoutside', 'FontSize', 9);
 xlabel(' Photon Energy [eV] ', 'FontWeight','bold');
-ylabel(' Sensitivity Factor (SF) ', 'FontWeight','bold');
+ylabel(' Relative Sensitivity Factor (RSF) ', 'FontWeight','bold');
 ax = gca; ax.YScale = 'log'; ax.XScale = 'log';
 axis([1e2, 1e4, 1e-5, 1e5]);
 end

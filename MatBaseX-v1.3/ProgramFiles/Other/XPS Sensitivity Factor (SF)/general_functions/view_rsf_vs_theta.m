@@ -65,7 +65,7 @@ text(0.98, 0.92, sprintf("hv = %i eV, phi = %i deg., P = %.2f", hv, phi, P),...
 % - Formatting the axis
 legend(ATOM_CL, 'location', 'eastoutside', 'FontSize', 9);
 xlabel(' Theta [degree] ', 'FontWeight','bold');
-ylabel(' Sensitivity Factor (SF) ', 'FontWeight','bold');
+ylabel(' Relative Sensitivity Factor (RSF) ', 'FontWeight','bold');
 ax = gca; ax.YScale = 'log'; ax.XScale = 'linear';
 axis([0, 90, 1e-5, 1e5]);
 end
