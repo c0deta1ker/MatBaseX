@@ -163,7 +163,7 @@ if plot_results == 1
     xsect_data  = NaN(size(hv_data, 1), length(cls));
     for i = 1:length(cls)
         idx = find(contains(ATOM_CL, cls(i), 'IgnoreCase',true), 1);
-        if idx == 0;    xsect_data(:,i)     = NaN(size(hv_data));
+        if isempty(idx) || idx == 0;    xsect_data(:,i)     = NaN(size(hv_data));
         else;           xsect_data(:,i)     = table_xs.(ATOM_CL{idx});
         end
     end

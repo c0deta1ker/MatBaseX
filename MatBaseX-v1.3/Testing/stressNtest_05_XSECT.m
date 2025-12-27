@@ -8,7 +8,7 @@ formalisms = read_xsect_formalisms(); % -- List of all XSECT formalisms
 %% Stress Testing: General
 close all;
 % - Random Photon Energy Entries (Scalar, Row & Column)
-n = 100;
+n = 5e2;
 for i = 1:n
     roll_dice = rand(1);
     if roll_dice < 0.33;        hv = 1.0e4*rand(1,50);
@@ -28,7 +28,7 @@ for i = 1:n
     [sigma, beta, gamma, delta] = calc_xsect(hv, element, corelevel, form, extrapolate, plot_result);
     % -- Printing Outputs
     fprintf("\nRun: %i / %i \n", i, n);
-    fprintf(" Formalism: Cant(2022)\n");
+    fprintf(" Formalism: %s \n", form);
     fprintf(" Element: %s\n", element);
     fprintf(" Core-Levels: %i \n", num_of_corelevels);
     if roll_dice > 0.66
