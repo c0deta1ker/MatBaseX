@@ -38,7 +38,6 @@ run stressNtest_01_MPD.m; close all; clear all;
 run stressNtest_02_IMFP.m; close all; clear all;
 run stressNtest_03_BE.m; close all; clear all;
 run stressNtest_04_AE.m; close all; clear all;
-%%
 run stressNtest_05_XSECT.m; close all; clear all;
 run stressNtest_06_XSECT_ANISO.m; close all; clear all;
 run stressNtest_07_SF.m; close all; clear all;
