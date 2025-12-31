@@ -70,14 +70,19 @@ for i = 1:Nlyrs
     end
 end
 % -- Apply a consistency across the interfaces of each layer
-lyr_Scale = cell(size(Nlyrs)); lyr_Int0 = cell(size(Nlyrs));
+lyr_Scale = cell(1,Nlyrs); lyr_Int0 = cell(1,Nlyrs);
 for i = 1:Nlyrs
     if i == 1
         lyr_Int0{i} = lyr_Int{i};
         lyr_Scale{i} = exp(-((lyr_z0{i} + 0.5*lyr_thick{i}))./ (lyr_imfp{i} .* cos(Theta)));
-    else          
-        lyr_Int0{i}     = lyr_Scale{i-1} .* lyr_Int{i};
-        lyr_Scale{i}    = min(lyr_Int0{i}(lyr_Int0{i}>0));
+    else     
+        if isempty(lyr_Scale{i-1}) || isnan(lyr_Scale{i-1})
+            lyr_Int0{i}     = NaN .* lyr_Int{i};
+            lyr_Scale{i}    = NaN;
+        else
+            lyr_Int0{i}     = lyr_Scale{i-1} .* lyr_Int{i};
+            lyr_Scale{i}    = min(lyr_Int0{i}(lyr_Int0{i}>0));
+        end
     end
 end
 % -- Calculate the breakdown of total intensities

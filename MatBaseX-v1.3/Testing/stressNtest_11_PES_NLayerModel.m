@@ -6,11 +6,11 @@ ATOM_CMP    = read_mpd_compounds();          % -- List of all compounds
 MAT_SYMB    = horzcat(ATOM_ELE, ATOM_CMP);   % -- List of all elements & compounds
 %% Stress Testing: N-Layer Modelling
 close all;
-n = 1e2;
+n = 50;
 for i = 1:n
     % -- Extracting material stack parameters
-    lyr_mat = {};
-    Nlyrs       = randi([1, 10], 1);
+    lyr_mat = {}; lyr_thick = {};
+    Nlyrs       = randi([1, 5], 1);
     for j = 1:Nlyrs
         lyr_mat{j}      = string(MAT_SYMB{randi([1, length(MAT_SYMB)], 1)});
         formula         = parse_chemical_formula(lyr_mat{j});
@@ -20,6 +20,7 @@ for i = 1:n
         lyr_cls{j}      = cls(randi([1, length(cls)], 1));
         lyr_thick{j}    = 10*rand(1);
     end
+    lyr_thick{end}  = Inf;
     lyr_density     = {};
     lyr_exclude     = {};
     fig = simul_pes_nlayer_sample(lyr_mat, lyr_thick);
@@ -43,7 +44,7 @@ for i = 1:n
     else;                   plot_result = 0;
     end
     % -- Running Simulations
-    ke = 500 + 5e3*rand(1); thtM = 80*rand(1);
+    ke = 5e3*rand(1); thtM = 80*rand(1);
     [info_depth, lyr_depth, lyr_Int0] = simul_pes_nlayer_info_depth(lyr_mat, lyr_thick, ke, thtM, formalism_imfp, 1);
     [lyr_I, lyr_Inorm] = simul_pes_nlayer_intensity(...
         lyr_mat, lyr_ele, lyr_cls, lyr_thick, lyr_density, lyr_exclude,...

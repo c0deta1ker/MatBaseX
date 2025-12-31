@@ -5,7 +5,7 @@ function overlay_be(elements, parity, energy_lims)
 %   quickly view all the available data for a particular element.
 %
 %   IN:
-%   -   element:	    1xN cell vector of strings of the element names; e.g. "H", "He", "Si", "In"...
+%   -   elements:	    1xN cell vector of strings of the element names; e.g. "H", "He", "Si", "In"...
 %   -   parity:	        either 1 or -1; 1 plots the binding energies as positive. -1 plots the binding energies as negative.
 % 	-   energy_lims:    [1×2] row vector of binding energy range to plot
 %
