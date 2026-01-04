@@ -45,7 +45,7 @@ Or, download & install a [MatBaseX-Lite](https://github.com/c0deta1ker/MatBaseX-
 
 ## MATLAB Version control  
 MATLAB version:   2024b   
-MATLAB add-ons (not required, but recommended): Curve Fitting Toolbox, Global Optimization Toolbox, Image Processing Toolbox, Optimization Toolbox.
+MATLAB add-ons (recommended): Curve Fitting Toolbox, Global Optimization Toolbox, Image Processing Toolbox, Optimization Toolbox.
 
 
 ## Authors

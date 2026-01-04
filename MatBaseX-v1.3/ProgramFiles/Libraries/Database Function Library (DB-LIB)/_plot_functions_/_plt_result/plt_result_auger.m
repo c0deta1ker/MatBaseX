@@ -38,6 +38,10 @@ t.Padding = 'compact';
 ax = nexttile();
 %% 2    :   PLOT DATA
 hold on;
+% for i = 1:nTransitions
+%     text(auger_energy(i), auger_yield(i), sprintf('%s-%.2f', strrep(auger_transition(i), ',', ''), auger_energy(i)),...
+%         'Rotation', 45, 'FontName', 'Helvetica', 'FontSize',8, 'color', colorList{i}, 'HorizontalAlignment', 'left');
+% end
 for i = 1:nTransitions
     stem(auger_energy(i), auger_yield(i), ...
         'LineStyle', '-', 'LineWidth', 1.25, 'Marker', 'none', ...
