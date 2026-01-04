@@ -87,34 +87,8 @@ if size(be, 2) > 1;  be = be'; end
 warning('on', 'backtrace');
 %% -- Plot for debugging
 if plot_results == 1
-    nCL         = length(cls);
-    colorList   = read_be_core_levels_color(cls);
-    % - Creating a figure
-    fig = figure(); 
-    fig.Position(1) = 100; fig.Position(2) = 100;
-    fig.Position(3) = 800; 
-    fig.Position(4) = 350;
-    % - Creating a tiled axis
-    t = tiledlayout(1,1);
-    t.TileSpacing = 'compact';
-    t.Padding = 'compact';
-    % - Plot the figure
-    nexttile(); hold on; grid on; grid minor;
-    if nCL == 1
-        stem(be, 1, '-', 'linewidth', 1.5, 'marker', 'none', 'color', colorList{1});
-        text(be, 1, sprintf('%s(%.2f)', cls, be), 'Rotation',45, 'FontWeight','bold', 'FontSize',8);
-    else
-        for i = 1:nCL; stem(be(i), i/nCL, '-', 'linewidth', 1.5, 'marker', 'none', 'color', colorList{i});end 
-        for i = 1:nCL; text(be(i), i/nCL, sprintf('%s(%.2f)', cls(i), be(i)), 'Rotation',45, 'FontWeight','bold', 'FontSize',8); end
-    end
-    % - Formatting the axis
-    text(0.02, 0.96, sprintf("%s(Z=%i)", element, ele_indx),...
-        'FontSize', 12, 'color', 'k', 'Units','normalized', 'FontWeight', 'bold', 'HorizontalAlignment','left');
-    text(0.02, 0.91, sprintf("Cant(2022)"),...
-        'FontSize', 8, 'color', 'k', 'Units','normalized', 'HorizontalAlignment','left');
-    xlabel('Binding Energy [eV]', 'FontWeight','bold');
-    ylabel(' Intensity [arb.] ', 'FontWeight','bold');
-    ax = gca; ax.YScale = 'linear'; ax.XScale = 'log';
-    axis([1, 130000, 0, 1.40]);
+    formalismList   = read_formalisms('be');
+    formalism       = formalismList{2}; 
+    plt_result_be(element, formalism, be, cls);
 end
 end

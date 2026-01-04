@@ -4,8 +4,9 @@ ATOM_ELE   = read_mpd_elements();           % -- List of all elements
 ATOM_ELE   = ATOM_ELE(1:98);
 ATOM_CMP   = read_mpd_compounds();          % -- List of all compounds
 MAT_SYMB   = horzcat(ATOM_ELE, ATOM_CMP);  % -- List of all elements & compounds
-be_formalism_list = read_be_formalisms(); % -- List of all IMFP formalisms
-core_levels = read_be_core_levels();
+be_formalism_list = read_formalisms("be"); % -- List of all IMFP formalisms
+ATOM_CL = read_spectroscopy_element_data("be",[]); 
+ATOM_CL = sort(unique(ATOM_CL{:,2}));
 %% Stress Testing: calc_be() & view_be()
 %% - Random Elements w/o defining core-levels
 close all;
@@ -30,7 +31,7 @@ for i = 1:n
     num_of_corelevels   = randi([1, 10], 1);
     corelevel           = "";
     for j = 1:num_of_corelevels
-        corelevel(j) = string(core_levels{randi([1, length(core_levels)], 1)});
+        corelevel(j) = string(ATOM_CL{randi([1, length(ATOM_CL)], 1)});
     end
     formalism_id    = randi([1, length(be_formalism_list)], 1);
     [be, cls]       = calc_be(element, corelevel, be_formalism_list{formalism_id});

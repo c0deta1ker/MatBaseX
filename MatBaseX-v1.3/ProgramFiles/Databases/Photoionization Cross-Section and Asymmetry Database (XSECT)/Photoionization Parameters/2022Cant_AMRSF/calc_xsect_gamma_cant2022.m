@@ -195,40 +195,8 @@ if plot_results == 1
         else;           xsect_data(:,i)     = table_xs.(ATOM_CL{idx});
         end
     end
-    % -- Plotting Data
-    nCL         = length(cls);
-    colorList   = read_be_core_levels_color(cls);
-    % - Creating a figure
-    fig = figure(); 
-    fig.Position(1) = 100; fig.Position(2) = 100;
-    fig.Position(3) = 700; 
-    fig.Position(4) = 500;
-    % - Creating a tiled axis
-    t = tiledlayout(1,1);
-    t.TileSpacing = 'compact';
-    t.Padding = 'compact';
-    % - Plot of SIGMA
-    nexttile(); hold on; grid on; grid minor;
-    for i = 1:nCL
-        plot(hv_data, xsect_data(:,i),...
-            'x-', 'markersize', 5, 'markeredgecolor', colorList{i},...
-            'markerfacecolor', colorList{i}, 'color', colorList{i}); 
-        if isscalar(hv);        scatter(hv, xsect_gamma(i), 'SizeData', 50, 'markeredgecolor', colorList{i}, 'markerfacecolor', colorList{i}, 'MarkerFaceAlpha', 0.95, 'HandleVisibility','off');
-        elseif isrow(hv);       scatter(hv, xsect_gamma(i,:), 'SizeData', 50, 'markeredgecolor', colorList{i}, 'markerfacecolor', colorList{i}, 'MarkerFaceAlpha', 0.95, 'HandleVisibility','off');
-        elseif iscolumn(hv);    scatter(hv, xsect_gamma(:,i), 'SizeData', 50, 'markeredgecolor', colorList{i}, 'markerfacecolor', colorList{i}, 'MarkerFaceAlpha', 0.95, 'HandleVisibility','off');
-        end
-    end
-    % - Formatting the axis
-    legend(cls, 'location', 'eastoutside', 'FontSize', 9);
-    % - Labeling the x- and y-axes
-    text(0.98, 0.96, sprintf("%s(Z=%i)", element, ele_indx),...
-        'FontSize', 14, 'color', 'k', 'Units','normalized', 'FontWeight', 'bold', 'HorizontalAlignment','right');
-    text(0.98, 0.91, sprintf("Cant(2022)"),...
-        'FontSize', 8, 'color', 'k', 'Units','normalized', 'HorizontalAlignment','right');
-    xlabel(' Photon Energy [eV] ', 'FontWeight','bold');
-    ylabel(' \gamma  ', 'FontWeight','bold');
-    ax = gca; ax.YScale = 'linear'; ax.XScale = 'linear';
-    yline(0, 'k-', 'LineWidth',1, 'HandleVisibility','off');
-    axis([0.9*1000, 1.1*10000, -1, 2.75]);
+    formalismList   = read_formalisms('xsect');
+    formalism       = formalismList{1}; 
+    plt_result_xsect_gamma(element, formalism, hv, cls, hv_data, xsect_data, xsect_gamma);
 end
 end

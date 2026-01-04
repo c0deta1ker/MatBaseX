@@ -87,7 +87,7 @@ t.Padding = 'compact';
 nexttile(); hold on; grid on; grid minor;
 for i = 1:num_of_elements
     nCL         = length(edge_name{i});
-    colorList   = read_xae_edges_color(edge_name{i});
+    colorList   = read_spectroscopy_colors(edge_name{i});
     for j = 1:nCL
         text(edge_energy{i}(j), redge_jumps{i}(j), sprintf('%s-%s(%.2f)', elements{i}, edge_name{i}(j), edge_energy{i}(j)),...
             'Rotation',90, 'FontWeight','normal', 'FontSize',8, 'color', colorList{j});

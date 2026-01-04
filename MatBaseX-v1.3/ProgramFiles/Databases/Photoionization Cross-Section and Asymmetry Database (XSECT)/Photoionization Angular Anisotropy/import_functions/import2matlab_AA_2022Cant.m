@@ -77,8 +77,8 @@ for pp = 1:length(P)
         figX = gca;
         fnum = sprintf('%.2f', P{pp}); fnum = strrep(fnum, '.', '');
         fname = sprintf("FP_P%s_hv%ieV_phi%ideg_Z%i_%s", fnum, hv, phi, ATOM_ZNUM(i), ATOM_SYMB{i});
-        print(path_fig_save_FP + fname,'-dpng', '-r500');
-        saveas(figX, path_fig_save_FP + fname, 'fig');
+        print(path_fig_save_FP + fname,'-dpng', '-r300');
+        % saveas(figX, path_fig_save_FP + fname, 'fig');
         close all;
     end
 % 4.2 : hv@5000eV, theta@0degree, phi-dependence
@@ -93,8 +93,8 @@ for pp = 1:length(P)
         figX = gca;
         fnum = sprintf('%.2f', P{pp}); fnum = strrep(fnum, '.', '');
         fname = sprintf("FP_P%s_hv%ieV_theta%ideg_Z%i_%s", fnum, hv, theta, ATOM_ZNUM(i), ATOM_SYMB{i});
-        print(path_fig_save_FP + fname,'-dpng', '-r500');
-        saveas(figX, path_fig_save_FP + fname, 'fig');
+        print(path_fig_save_FP + fname,'-dpng', '-r300');
+        % saveas(figX, path_fig_save_FP + fname, 'fig');
         close all;
     end
 end

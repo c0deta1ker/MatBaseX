@@ -1,7 +1,8 @@
 close all; clear all; clc;
 %% Initializing variables
 ATOM_SYMB   = read_mpd_elements();      % -- Defining all possible elements
-ATOM_CL     = read_be_core_levels();       % -- Defining core-levels
+ATOM_CL = read_spectroscopy_element_data("be",[]); 
+ATOM_CL = sort(unique(ATOM_CL{:,2}));
 xsect_formalisms        = {"S1973", "YL1985", "T2018", "C2022"};
 imfp_formalisms         = ["Universal","TPP2M","TPP2M-avg","Optical","S1","S2","S3","S3O","S4","JTP"];
 %% Stress Testing: General

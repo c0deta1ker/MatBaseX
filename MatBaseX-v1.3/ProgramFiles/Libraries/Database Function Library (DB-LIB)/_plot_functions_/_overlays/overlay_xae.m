@@ -53,7 +53,7 @@ ax_lims = axis;
 yval    = 0.75*max(ax_lims(3:4));
 for i = 1:num_of_elements
     nCL         = length(edge_name{i});
-    colorList   = read_xae_edges_color(edge_name{i});
+    colorList   = read_spectroscopy_colors(edge_name{i});
     for j = 1:nCL
         xline(edge_energy{i}(j), ':', 'linewidth', 1.2, 'color', colorList{j}, 'HandleVisibility','off'); 
         text(edge_energy{i}(j)+0.75, yval, sprintf('%s-%s(%.2f)', elements(i), edge_name{i}(j), edge_energy{i}(j)),...

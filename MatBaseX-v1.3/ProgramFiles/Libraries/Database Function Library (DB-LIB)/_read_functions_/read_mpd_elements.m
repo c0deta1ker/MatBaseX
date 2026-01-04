@@ -1,15 +1,15 @@
-function element_names_list = read_mpd_elements()
-% element_names_list = read_mpd_elements()
+function elementNamesList = read_mpd_elements()
+% elementNamesList = read_mpd_elements()
 %   This function returns a cell array containing elements from 1 to
 %   118 in terms of the element formula.
 %
 %   IN: (none)
 %
 %   OUT:
-%   -   element_names_list:      1x118 cell array of the element formula
+%   -   elementNamesList:      1x118 cell array of the element formula
 
 %% 1 : Defining Elements 1 - 118
-element_names_list   = {...
+elementNamesList   = {...
     'H','He',...
     'Li','Be','B','C','N','O','F','Ne',...
     'Na','Mg','Al','Si','P','S','Cl','Ar',...

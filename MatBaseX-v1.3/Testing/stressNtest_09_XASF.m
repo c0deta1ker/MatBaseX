@@ -4,7 +4,6 @@ ATOM_SYMB   = read_mpd_elements();      % -- Defining all possible elements
 ATOM_SYMB   = ATOM_SYMB(1:92);
 COMP_SYMB   = read_mpd_compounds();     % -- Defining all possible compounds
 MAT_SYMB    = horzcat(ATOM_SYMB, COMP_SYMB);% -- List of all materials
-ATOM_CL     = read_be_core_levels();       % -- Defining core-levels
 FORMS       = ["Henke1993", "NIST2005"];
 %% Stress Testing: calc_xasf()
 close all;

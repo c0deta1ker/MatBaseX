@@ -62,50 +62,8 @@ f1 = if1;
 f2 = if2;
 %% -- Plot for debugging
 if plot_results == 1
-    % - Creating a figure
-    fig = figure(); 
-    fig.Position(1) = 100; fig.Position(2) = 100;
-    fig.Position(3) = 1000; 
-    fig.Position(4) = 350;
-    % - Creating a tiled axis
-    t = tiledlayout(1,2);
-    t.TileSpacing = 'compact';
-    t.Padding = 'compact';
-    % - f1
-    nexttile(); hold on; grid on; grid minor;
-    plot(hv_data, f1_data, '.-', 'markersize', 4, 'markeredgecolor', 'b', 'markerfacecolor', 'b', 'color', 'b'); 
-    scatter(hv, f1, 'SizeData', 50, 'markeredgecolor', 'b', 'markerfacecolor', 'b', 'MarkerFaceAlpha', 0.95, 'HandleVisibility','off');
-    % - Formatting the axis
-    lgnd_txt = {'f_1 (coherent scattering)'};
-    legend(lgnd_txt, 'location', 'southeast', 'FontSize', 9);
-    text(0.02, 0.96, sprintf("%s (Z=%i)", element, ele_indx),...
-        'FontSize', 14, 'color', 'k', 'Units','normalized', 'FontWeight', 'bold', 'HorizontalAlignment','left');
-    text(0.02, 0.90, sprintf("Henke(1993)"),...
-        'FontSize', 8, 'color', 'k', 'Units','normalized', 'HorizontalAlignment','left');
-    xlabel(' Photon Energy [eV] ', 'FontWeight','bold');
-    ylabel(' f_1 [e/atom] ', 'FontWeight','bold');
-    ax = gca; ax.YScale = 'linear'; ax.XScale = 'log';
-    if ele_indx < 14;       axis([5, 1e5, -20, 20]);
-    elseif ele_indx < 29;   axis([5, 1e5, -40, 40]);
-    else;                   axis([5, 1e5, -100, 100]);
-    end
-    yline(0, 'k-', 'LineWidth',1, 'HandleVisibility','off');
-    % - f2
-    nexttile(); hold on; grid on; grid minor;
-    plot(hv_data, f2_data, '.-', 'markersize', 4, 'markeredgecolor', 'r', 'markerfacecolor', 'r', 'color', 'r'); 
-    scatter(hv, f2, 'SizeData', 50, 'markeredgecolor', 'r', 'markerfacecolor', 'r', 'MarkerFaceAlpha', 0.95, 'HandleVisibility','off');
-    % - Formatting the axis
-    lgnd_txt = {'f_2 (absorption)'};
-    legend(lgnd_txt, 'location', 'southwest', 'FontSize', 9);
-    text(0.02, 0.96, sprintf("%s (Z=%i)", element, ele_indx),...
-        'FontSize', 14, 'color', 'k', 'Units','normalized', 'FontWeight', 'bold', 'HorizontalAlignment','left');
-    text(0.02, 0.90, sprintf("Henke(1993)"),...
-        'FontSize', 8, 'color', 'k', 'Units','normalized', 'HorizontalAlignment','left');
-    xlabel(' Photon Energy [eV] ', 'FontWeight','bold');
-    ylabel(' f_2 [e/atom] ', 'FontWeight','bold');
-    ax = gca; ax.YScale = 'log'; ax.XScale = 'log';
-    if ele_indx < 14;   axis([5, 1e5, 1e-7, 1e3]);
-    else;               axis([5, 1e5, 1e-2, 1e3]);
-    end
+    formalismList   = read_formalisms('xasf');
+    formalism       = formalismList{2}; 
+    plt_result_xasf(element, formalism, hv, f1, f2, hv_data, f1_data, f2_data);
 end
 end

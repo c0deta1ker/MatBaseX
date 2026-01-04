@@ -24,5 +24,6 @@ function FU = calc_angle_aniso_FU(beta, gamma, delta, omega)
 if nargin < 4; omega = 90;  end
 if isempty(omega); omega = 90; end
 %% 1 : Angular anisotropy factor for unpolarized light
+omega = 90 - omega; % make omega consistent with the emission angle
 FU = 1 - 0.25 .*beta .* (3 .* cos(deg2rad(omega)).^2 - 1) + (delta + 0.5 .* gamma .* sin(deg2rad(omega)).^2) .* cos(deg2rad(omega));
 end

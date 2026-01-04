@@ -35,9 +35,9 @@ for i = 1:n
     phi     = sort(phi);
     P = rand(1);
     % -- Defining formalisms to use
-    imfp_formalisms = read_imfp_formalisms();
+    imfp_formalisms = read_formalisms('imfp');
     formalism_imfp  = imfp_formalisms(randi([1, length(imfp_formalisms)], 1));
-    xsect_formalisms = read_xsect_formalisms();
+    xsect_formalisms = read_formalisms('xsect');
     formalism_xsect  = xsect_formalisms(randi([1, length(xsect_formalisms)], 1));
     roll_dice = rand(1);
     if roll_dice < 0.20;    plot_result = 1;

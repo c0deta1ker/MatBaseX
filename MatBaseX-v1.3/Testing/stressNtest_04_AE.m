@@ -4,8 +4,7 @@ ATOM_ELE   = read_mpd_elements();           % -- List of all elements
 ATOM_ELE   = ATOM_ELE(1:93);
 ATOM_CMP   = read_mpd_compounds();          % -- List of all compounds
 MAT_SYMB   = horzcat(ATOM_ELE, ATOM_CMP);  % -- List of all elements & compounds
-auger_formalism_list = read_auger_formalisms(); % -- List of all IMFP formalisms
-core_levels = read_auger_transitions();
+auger_formalism_list = read_formalisms("auger"); % -- List of all formalisms
 %% Stress Testing: calc_auger()
 %% - Random Elements w/o defining auger transitions
 close all;

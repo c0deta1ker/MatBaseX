@@ -53,34 +53,8 @@ else
 end
 %% -- Plot for debugging
 if plot_results == 1
-    nAE = length(auger_energy_be);
-    % - Creating a figure
-    fig = figure(); 
-    fig.Position(1) = 100; fig.Position(2) = 100;
-    fig.Position(3) = 800; 
-    fig.Position(4) = 350;
-    % - Creating a tiled axis
-    t = tiledlayout(1,1);
-    t.TileSpacing = 'compact';
-    t.Padding = 'compact';
-    % - Plot the figure
-    nexttile(); hold on; grid on; grid minor;
-    for i = 1:nAE; text(auger_energy_be(i), auger_norm_mult(i), sprintf('%s(%.2f)', auger_transition(i), auger_energy_be(i)), 'Rotation',45, 'FontWeight','bold', 'FontSize',7); end
-    for i = 1:nAE; stem(auger_energy_be(i), auger_norm_mult(i), '-', 'linewidth', 1.25, 'marker', 'none', 'color', 'b');end 
-    % - Formatting the axis
-    text(0.02, 0.96, sprintf("%s(Z=%i)", element, ele_indx),...
-        'FontSize', 12, 'color', 'k', 'Units','normalized', 'FontWeight', 'bold', 'HorizontalAlignment','left');
-    text(0.02, 0.91, sprintf("Perkins(1991)"),...
-        'FontSize', 8, 'color', 'k', 'Units','normalized', 'HorizontalAlignment','left');
-    if isempty(hv); xlabel('Kinetic Energy [eV]', 'FontWeight','bold');
-    else        
-        xlabel('Binding Energy [eV]', 'FontWeight','bold');
-        xline(hv(1), 'r-', 'linewidth', 1.5);
-        text(0.02, 0.87, sprintf("hv = %.0f eV", hv(1)),...
-            'FontSize', 8, 'color', 'k', 'Units','normalized', 'HorizontalAlignment','left');
-    end
-    ylabel(' Intensity [arb.] ', 'FontWeight','bold');
-    ax = gca; ax.YScale = 'linear'; ax.XScale = 'log';
-    axis([1, 130000, 0, 1.40]);
+    formalismList   = read_formalisms('auger');
+    formalism       = formalismList{1}; 
+    plt_result_auger(element, formalism, hv, auger_transition, auger_energy_be, auger_norm_mult);
 end
 end

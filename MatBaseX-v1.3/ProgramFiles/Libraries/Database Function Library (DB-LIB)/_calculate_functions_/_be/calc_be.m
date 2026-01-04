@@ -36,31 +36,31 @@ formalism   = string(formalism);
 formalism_m1993     = [...
     "Moulder(1993)", "(1993)Moulder", "Moulder1993", "1993Moulder",...
     "Mou(1993)", "(1993)Mou", "Mou1993", "1993Mou",...
-    "Moulder", "Mou", "M", "M1993", "1993"];
+    "Moulder", "M1993", "1993"];
 formalism_t2018     = [...
     "Trz(2018)", "(2018)Trz", "Trz2018", "2018Trz",...
     "Trzh(2018)", "(2018)Trzh", "Trzh2018", "2018Trzh",...
     "Trzhaskovskaya(2018)", "(2018)Trzhaskovskaya", "Trzhaskovskaya2018", "2018Trzhaskovskaya",...
-    "Trzhaskovskaya", "Trz", "T", "T2018", "2018"];
+    "Trzhaskovskaya", "Trz", "T2018", "2018"];
 formalism_c2022     = [...
     "Cant(2022)", "(2022)Cant", "Cant2022", "2022Cant",...
-    "Cant", "Can", "C2022", "2022"];
+    "Cant", "C2022", "2022"];
 formalism_c2023     = [...
     "Constantinou(2023)", "(2023)Constantinou", "Constantinou2023", "2023Constantinou",...
     "Cons(2023)", "(2023)Cons", "Cons2023", "2023Cons",...
-    "Constantinou", "Constant", "Con", "C2023", "2023"];
+    "Constantinou", "C2023", "2023"];
 %% 2 - Determination of the atomic photoionization BE
 % -- Moulder1993 formalism
-if contains(formalism, formalism_m1993, "IgnoreCase", true)
+if ~isempty(find(strcmpi(formalism_m1993, formalism),1))
    [be, cls] = calc_be_moulder1993(element, corelevel, plot_results);
 % -- Trzhaskovskaya2018 formalism
-elseif contains(formalism, formalism_t2018, "IgnoreCase", true)
+elseif ~isempty(find(strcmpi(formalism_t2018, formalism),1))
    [be, cls] = calc_be_trzh2018(element, corelevel, plot_results);
 % -- Cant2020 formalism
-elseif contains(formalism, formalism_c2022, "IgnoreCase", true)
+elseif ~isempty(find(strcmpi(formalism_c2022, formalism),1))
    [be, cls] = calc_be_cant2022(element, corelevel, plot_results);
 % -- Constantinou2023 formalism
-elseif contains(formalism, formalism_c2023, "IgnoreCase", true)
+elseif ~isempty(find(strcmpi(formalism_c2023, formalism),1))
     [be, cls] = calc_be_constantinou2023(element, corelevel, plot_results);
 else; msg = 'Formalism not found. One of the following must be used: "Mou1993", "Trz2018", "Cant2022" or "Cons2023".'; error(msg);
 end

@@ -73,7 +73,7 @@ t.Padding = 'compact';
 nexttile(); hold on; grid on; grid minor;
 for i = 1:num_of_elements
     nCL         = length(cls{i});
-    colorList   = read_be_core_levels_color(cls{i});
+    colorList   = read_spectroscopy_colors(cls{i});
     for j = 1:nCL
         text(be{i}(j), rsigma{i}(j), sprintf('%s%s(%.2f)', elements{i}, cls{i}(j), be{i}(j)),...
             'Rotation',90, 'FontWeight','normal', 'FontSize',8, 'color', colorList{j});

@@ -126,39 +126,8 @@ xsect_sigma(xsect_sigma<0) = NaN;
 warning('on', 'backtrace');
 %% -- Plot for debugging
 if plot_results == 1
-    nCL         = length(cls);
-    colorList   = read_be_core_levels_color(cls);
-    % - Creating a figure
-    fig = figure(); 
-    fig.Position(1) = 100; fig.Position(2) = 100;
-    fig.Position(3) = 700; 
-    fig.Position(4) = 500;
-    % - Creating a tiled axis
-    t = tiledlayout(1,1);
-    t.TileSpacing = 'compact';
-    t.Padding = 'compact';
-    % - Plot of SIGMA
-    nexttile(); hold on; grid on; grid minor;
-    for i = 1:nCL
-        plot(hv_data, xsect_data(:,i),...
-            'x-', 'markersize', 5, 'markeredgecolor', colorList{i},...
-            'markerfacecolor', colorList{i}, 'color', colorList{i}); 
-        if isscalar(hv);        scatter(hv, xsect_sigma(i), 'SizeData', 50, 'markeredgecolor', colorList{i}, 'markerfacecolor', colorList{i}, 'MarkerFaceAlpha', 0.95, 'HandleVisibility','off');
-        elseif isrow(hv);       scatter(hv, xsect_sigma(i,:), 'SizeData', 50, 'markeredgecolor', colorList{i}, 'markerfacecolor', colorList{i}, 'MarkerFaceAlpha', 0.95, 'HandleVisibility','off');
-        elseif iscolumn(hv);    scatter(hv, xsect_sigma(:,i), 'SizeData', 50, 'markeredgecolor', colorList{i}, 'markerfacecolor', colorList{i}, 'MarkerFaceAlpha', 0.95, 'HandleVisibility','off');
-        end
-    end
-    % - Formatting the axis
-    legend(cls, 'location', 'eastoutside', 'FontSize', 9);
-    % - Labeling the x- and y-axes
-    text(0.98, 0.96, sprintf("%s(Z=%i)", element, ele_indx),...
-        'FontSize', 14, 'color', 'k', 'Units','normalized', 'FontWeight', 'bold', 'HorizontalAlignment','right');
-    text(0.98, 0.91, sprintf("Schofield(1973)"),...
-        'FontSize', 8, 'color', 'k', 'Units','normalized', 'HorizontalAlignment','right');
-    xlabel(' Photon Energy [eV] ', 'FontWeight','bold');
-    ylabel(' \sigma [barn/atom] ', 'FontWeight','bold');
-    ax = gca; ax.YScale = 'log'; ax.XScale = 'log';
-    % yline(0, 'k-', 'LineWidth',1, 'HandleVisibility','off');
-    axis([0.9*1000, 1.1*1500000, 1e-10, 1e7]);
+    formalismList   = read_formalisms('xsect');
+    formalism       = formalismList{4}; 
+    plt_result_xsect_sigma(element, formalism, hv, cls, hv_data, xsect_data, xsect_sigma);
 end
 end

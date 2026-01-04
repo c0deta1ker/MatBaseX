@@ -3,7 +3,7 @@ close all; clear all; clc;
 ATOM_ELE   = read_mpd_elements();           % -- List of all elements  
 ATOM_CMP   = read_mpd_compounds();          % -- List of all compounds
 MAT_SYMB   = horzcat(ATOM_ELE, ATOM_CMP);  % -- List of all elements & compounds
-imfp_formalism_list = read_imfp_formalisms(); % -- List of all IMFP formalisms
+imfp_formalism_list = read_formalisms("imfp"); % -- List of all IMFP formalisms
 %% Stress Testing: calc_imfp() & view_imfp()
 close all;
 % - Random Photon Energy Entries (Scalar, Row & Column)

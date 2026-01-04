@@ -45,3 +45,4 @@ run stressNtest_08_XAE.m; close all; clear all;
 run stressNtest_09_XASF.m; close all; clear all;
 run stressNtest_10_PES_FitFuncs.m; close all; clear all;
 run stressNtest_11_PES_NLayerModel.m; close all; clear all;
+run stressNtest_12_Other.m; close all; clear all;

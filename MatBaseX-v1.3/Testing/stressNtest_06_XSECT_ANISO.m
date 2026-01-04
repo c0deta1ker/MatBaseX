@@ -3,7 +3,8 @@ close all; clear all; clc;
 ATOM_ELE   = read_mpd_elements();           % -- List of all elements  
 ATOM_CMP   = read_mpd_compounds();          % -- List of all compounds
 MAT_SYMB   = horzcat(ATOM_ELE, ATOM_CMP);   % -- List of all elements & compounds
-ATOM_CL    = read_be_core_levels();         % -- Defining core-levels
+ATOM_CL = read_spectroscopy_element_data("be",[]); 
+ATOM_CL = sort(unique(ATOM_CL{:,2}));
 %% Stress Testing: Angular Anisotropy
 close all;
 % - Random Photon Energy Entries (Scalar, Row & Column)

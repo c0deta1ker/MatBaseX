@@ -4,8 +4,9 @@ ATOM_ELE   = read_mpd_elements();           % -- List of all elements
 ATOM_ELE   = ATOM_ELE(1:98);
 ATOM_CMP   = read_mpd_compounds();          % -- List of all compounds
 MAT_SYMB   = horzcat(ATOM_ELE, ATOM_CMP);  % -- List of all elements & compounds
-xae_formalism_list = read_xae_formalisms(); % -- List of all IMFP formalisms
-edge_names = read_xae_edges();
+xae_formalism_list = read_formalisms("xae"); % -- List of all IMFP formalisms
+ATOM_EDGE = read_spectroscopy_element_data("xae",[]); 
+ATOM_EDGE = sort(unique(ATOM_EDGE{:,2}));
 %% Stress Testing: calc_xae() & view_xae()
 %% - Random Elements w/o defining edges
 close all;
@@ -33,7 +34,7 @@ for i = 1:n
     num_of_corelevels   = randi([1, 5], 1);
     edgename           = "";
     for j = 1:num_of_corelevels
-        edgename(j) = string(edge_names{randi([1, length(edge_names)], 1)});
+        edgename(j) = string(ATOM_EDGE{randi([1, length(ATOM_EDGE)], 1)});
     end
     formalism_id    = randi([1, length(xae_formalism_list)], 1);
     [edge_energy, edge_name, edge_width, edge_jump] = calc_xae(element, edgename, xae_formalism_list{formalism_id});

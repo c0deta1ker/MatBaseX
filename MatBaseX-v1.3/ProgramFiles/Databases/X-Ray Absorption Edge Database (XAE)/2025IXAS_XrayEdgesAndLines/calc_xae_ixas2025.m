@@ -97,35 +97,8 @@ if size(edge_jump, 2) > 1;     edge_jump = edge_jump'; end
 warning('on', 'backtrace');
 %% -- Plot for debugging
 if plot_results == 1
-    nCL         = length(edge_name);
-    colorList   = read_xae_edges_color(edge_name);
-    % - Creating a figure
-    fig = figure(); 
-    fig.Position(1) = 100; fig.Position(2) = 100;
-    fig.Position(3) = 800; 
-    fig.Position(4) = 350;
-    % - Creating a tiled axis
-    t = tiledlayout(1,1);
-    t.TileSpacing = 'compact';
-    t.Padding = 'compact';
-    % - Plot the figure
-    nexttile(); hold on; grid on; grid minor;
-    % - Analytical absorption edge spectrum
-    if nCL == 1
-        stem(edge_energy, edge_jump, '-', 'linewidth', 1 + edge_width(i)/7, 'marker', 'none', 'color', colorList{1});
-        text(edge_energy, edge_jump, sprintf('%s(%.2f)', edge_name(1), edge_energy), 'Rotation',45, 'FontWeight','bold', 'FontSize',8);
-    else
-        for i = 1:nCL; stem(edge_energy(i), edge_jump(i), '-', 'linewidth', 1 + edge_width(i)/7, 'marker', 'none', 'color', colorList{i});end 
-        for i = 1:nCL; text(edge_energy(i), edge_jump(i), sprintf('%s(%.2f)', edge_name(i), edge_energy(i)), 'Rotation',45, 'FontWeight','bold', 'FontSize',8); end
-    end
-    % - Formatting the axis
-    text(0.02, 0.96, sprintf("%s(Z=%i)", element, ele_indx),...
-        'FontSize', 12, 'color', 'k', 'Units','normalized', 'FontWeight', 'bold', 'HorizontalAlignment','left');
-    text(0.02, 0.91, sprintf("IXAS(2025)"),...
-        'FontSize', 8, 'color', 'k', 'Units','normalized', 'HorizontalAlignment','left');
-    xlabel('Energy [eV]', 'FontWeight','bold');
-    ylabel(' Edge Jump ', 'FontWeight','bold');
-    ax = gca; ax.YScale = 'linear'; ax.XScale = 'log';
-    axis([0.05, 5e5, 0, ceil(1.5*max(edge_jump(:)))]);
+    formalismList   = read_formalisms('xae');
+    formalism       = formalismList{1}; 
+    plt_result_xae(element, formalism, edge_energy, edge_name, edge_width, edge_jump);
 end
 end

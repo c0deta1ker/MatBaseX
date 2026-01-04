@@ -17,7 +17,7 @@ if isempty(plot_results); plot_results = 0; end
 %% Validity check on inputs
 unknown_be          = abs(unknown_be);   % Ensure binding energy is positive
 %% 1 - Extracting a comprehensive list of all binding energies
-atom_be_table           = read_be_all_elements();
+atom_be_table           = read_spectroscopy_element_data("be",[]);
 % -- Extracting all binding energies
 all_binding_energies    = cell2mat(table2cell(atom_be_table(:,3)));
 %% 2 - Finding the top 5 best matches
@@ -31,9 +31,9 @@ norm_val                = sum(differences(top_indices));
 top_matches = struct();
 for i = 1:5
     idx                                 = top_indices(i);
-    top_matches(i).Element               = atom_be_table{idx,1}{1};
-    top_matches(i).CoreLevel             = atom_be_table{idx,2}{1};
-    top_matches(i).BindingEnergy         = atom_be_table{idx,3}{1};
+    top_matches(i).Element               = atom_be_table{idx,1};
+    top_matches(i).CoreLevel             = atom_be_table{idx,2};
+    top_matches(i).BindingEnergy         = atom_be_table{idx,3};
     top_matches(i).Difference            = differences(idx);
     top_matches(i).PercentageLikelihood  = round((1 - (differences(idx) / norm_val)) * 100, 4);
 end
