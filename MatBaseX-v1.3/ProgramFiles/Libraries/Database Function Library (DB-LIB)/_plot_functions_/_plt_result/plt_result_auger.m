@@ -63,7 +63,6 @@ if isempty(hv) || hv == 0
     xlabel('Kinetic Energy [eV]', 'FontSize', 11, 'FontWeight', 'bold', 'FontName', 'Helvetica');
 else
     xlabel('Binding Energy [eV]', 'FontSize', 11, 'FontWeight', 'bold', 'FontName', 'Helvetica');
-    % Photon energy reference line (subtle)
     xline(hv, 'k--', 'LineWidth', 1.2, 'Alpha', 0.6);
 end
 %% 3.3    :   TEXT ANNOTATIONS (Using annotation objects for consistency)

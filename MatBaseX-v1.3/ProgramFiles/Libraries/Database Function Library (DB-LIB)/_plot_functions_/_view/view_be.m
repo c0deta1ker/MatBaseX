@@ -1,5 +1,5 @@
-function [fig, beData] = view_be(formula, hv, parity)
-% [fig, beData] = view_be(formula, hv, parity)
+function [fig, beData] = view_be(formula, hv, parity, energy_lims)
+% [fig, beData] = view_be(formula, hv, parity, energy_lims)
 %   This function plots the binding energies of core levels for a given formula. 
 %   The peak heights of the core levels are determined using data from the photoionization 
 %   cross-sections database, based on the provided photon energy (default hv = 5000 eV). 
@@ -12,18 +12,23 @@ function [fig, beData] = view_be(formula, hv, parity)
 %   -   parity:	        either +1 or -1; 
 %                               +1 plots the binding energies as positive. 
 %                               -1 plots the binding energies as negative.
+% 	-   energy_lims:    [1×2] row vector of energy limits to be plotted
 %
 %   OUT:
 %   -   fig:            figure output
 %   -   beData:         data structure containing all the BE data
 
 %% Default parameters
-if nargin < 2; hv = 5000;  end
+if nargin < 2; hv = 6000;  end
 if nargin < 3; parity = 1;  end
-if isempty(hv); hv = 5000; end
+if nargin < 4; energy_lims = [];  end
+if isempty(hv); hv = 6000; end
 if isempty(parity); parity = 1; end
+if isempty(energy_lims); energy_lims = []; end
 %% Validity checks on the input parameters
-formula    = string(formula);
+formula     = string(formula);
+hv          = abs(double(hv));
+energy_lims = sort(energy_lims);
 %% 1 - Filing through all the selected elements and extracting binding energies
 % Extracting Parameters
 % -- Formula Parameters
@@ -44,51 +49,82 @@ norm_val = cat(1, sigma{:});
 norm_val = max(norm_val(:));
 for i = 1:num_of_elements; rsigma{i} = sigma{i} ./ norm_val; end
 %% 2 - Extracting the parity of the binding energies
-if parity == -1
-    for i = 1:length(be); be{i} = -1 .* be{i}; end
-elseif parity == +1
-    for i = 1:length(be); be{i} = +1 .* be{i}; end
+if parity == -1;        for i = 1:length(be); be{i} = -1 .* be{i}; end
+elseif parity == +1;    for i = 1:length(be); be{i} = +1 .* be{i}; end
+end
+% -- Removing all entries that lies outside of the energy limits
+for i = 1:num_of_elements
+    if ~isempty(energy_lims)
+        % -- Lower bound
+        cls{i}(be{i}<energy_lims(1)) = []; 
+        sigma{i}(be{i}<energy_lims(1)) = []; 
+        rsigma{i}(be{i}<energy_lims(1)) = []; 
+        be{i}(be{i}<energy_lims(1)) = [];
+        % -- Upper bound
+        cls{i}(be{i}>energy_lims(2)) = []; 
+        sigma{i}(be{i}>energy_lims(2)) = []; 
+        rsigma{i}(be{i}>energy_lims(2)) = []; 
+        be{i}(be{i}>energy_lims(2)) = []; 
+    end
 end
 %% 3 - Saving data to MATLAB data-structure
 beData = struct();
 beData.formula              = formula;
+beData.hv                   = hv;
+beData.parity               = parity;
+beData.energy_lims          = energy_lims;
 beData.vformula             = vformula;
 beData.elements             = elements;
 beData.num_of_elements      = num_of_elements;
+beData.avg_Z                = calc_average_z_number(formula);
 beData.cls                  = cls;
 beData.be                   = be;
 beData.sigma                = sigma;
 beData.rsigma               = rsigma;
 %% 4 - Plotting the data
-% Creating figure
-fig = figure(); 
-fig.Position(1) = 100; fig.Position(2) = 100;
-fig.Position(3) = 1000; 
-fig.Position(4) = 425;
-% - Creating tiled axis
-t = tiledlayout(1,1);
+%% 4.1    :   Create Figure & Axis
+fig = figure('Name', sprintf('X-Ray Binding Energy Spectrum - %s (Z=%.1f)', formula, beData.avg_Z));
+fig.Position = [100, 100, 1000, 425];  % [left, bottom, width, height]
+% Create tiled layout for clean spacing
+t = tiledlayout(1, 1);
 t.TileSpacing = 'compact';
 t.Padding = 'compact';
-% - Plot the figure
 nexttile(); hold on; grid on; grid minor;
+%% 4.2    :   Plot Data
 for i = 1:num_of_elements
     nCL         = length(cls{i});
     colorList   = read_spectroscopy_colors(cls{i});
     for j = 1:nCL
         text(be{i}(j), rsigma{i}(j), sprintf('%s%s(%.2f)', elements{i}, cls{i}(j), be{i}(j)),...
-            'Rotation',90, 'FontWeight','normal', 'FontSize',8, 'color', colorList{j});
-        stem(be{i}(j), rsigma{i}(j), '-', 'linewidth', 2.0, 'marker', 'none', 'color', colorList{j});  
+            'Rotation', 90, 'FontWeight','normal', 'FontSize', 8, 'color', colorList{j});
+        stem(be{i}(j), rsigma{i}(j), '-',...
+            'linewidth', 1.5, 'marker', 'none', 'color', colorList{j});  
     end
 end
-% - Labeling the x- and y-axes
-text(0.02, 0.96, sprintf("%s", formula),...
-    'FontSize', 12, 'color', 'k', 'Units','normalized', 'FontWeight', 'bold', 'HorizontalAlignment','left');
-text(0.02, 0.925, sprintf("hv = %.i eV", hv),...
-    'FontSize', 8, 'color', 'k', 'Units','normalized', 'HorizontalAlignment','left');
-xlabel('Binding Energy [eV]', 'FontWeight','bold');
-ylabel('Relative Sigma [arb.]', 'FontWeight','bold');
-ax = gca; ax.YScale = 'linear'; ax.XScale = 'log';
+%% 4.3    :   Formatting the Axis & Grid
+% Scale and limits
+ax = gca; 
+ax.XScale = 'log'; ax.YScale = 'linear'; 
+ax.Layer = 'top'; ax.TickDir = "in";
+% Axis appearance
+ax.LineWidth = 1.0;
+ax.FontName = 'Helvetica';
+ax.FontSize = 11;
 if parity == -1;        axis([-130000, -1, 0, 1.25]);
 elseif parity == +1;    axis([1, 130000, 0, 1.25]);
 end
+% - Labeling the x- and y-axes
+xlabel('Binding Energy [eV]', 'FontSize', 11, 'FontWeight', 'bold', 'FontName', 'Helvetica');
+ylabel('Relative Sigma [arb.]', 'FontSize', 11, 'FontWeight', 'bold', 'FontName', 'Helvetica');
+%% 4.4    :   Text Annotations
+% Title section (element and atomic number)
+text(0.02, 0.96, sprintf('%s(Z=%.1f)', formula, beData.avg_Z),...
+        'FontSize', 12, 'FontName', 'Helvetica', 'EdgeColor', 'none',...
+        'HorizontalAlignment', 'left', 'VerticalAlignment', 'middle',...
+        'Units','normalized', 'FontWeight', 'bold');
+% Formalism (calculation method)
+text(0.02, 0.91, sprintf("hv = %.i eV", hv),...
+        'FontSize', 9, 'FontName', 'Helvetica', 'EdgeColor', 'none',...
+        'HorizontalAlignment', 'left', 'VerticalAlignment', 'middle',...
+        'Units','normalized');
 end

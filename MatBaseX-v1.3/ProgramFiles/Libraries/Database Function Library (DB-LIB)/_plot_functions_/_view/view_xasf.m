@@ -20,52 +20,85 @@ ele_indx    = calc_average_z_number(formula);
 ffData = struct();
 ffData.formalisms   = {"NIST2005","Henke1993"};
 ffData.element      = formula;
+ffData.avg_Z        = calc_average_z_number(formula);
 ffData.hv           = logspace(1,6,5e3);
 for i = 1:length(ffData.formalisms)
     [ffData.f1{i}, ffData.f2{i}] =...
         calc_xasf(ffData.hv, ffData.element, ffData.formalisms{i});
 end
-%% 2 - Plotting a summary 
-pad = 0.50;
-% - Creating a figure
-fig = figure(); 
-fig.Position(1) = 100; fig.Position(2) = 100;
-fig.Position(3) = 1000; 
-fig.Position(4) = 350;
-% - Creating a tiled axis
+%% 2 - Plotting the data
+%% 2.1    :   Create Figure & Axis
+fig = figure('Name', sprintf('X-Ray Atomic Scattering Factors - %s (Z=%.1f)', formula, ffData.avg_Z));
+fig.Position = [100, 100, 1200, 400];  % [left, bottom, width, height]
+% Create tiled layout for clean spacing
 t = tiledlayout(1,2);
 t.TileSpacing = 'compact';
 t.Padding = 'compact';
-% - f1
+%% 2.2    :   PLOT DATA #1 (f1)
 nexttile(); hold on; grid on; grid minor;
 plot(ffData.hv, ffData.f1{1}, '-', 'linewidth', 1.5, 'color', 'k'); 
 plot(ffData.hv, ffData.f1{2}, ':', 'linewidth', 2, 'color', 'r'); 
-% - Formatting the axis
+yline(0, 'k-', 'LineWidth', 1, 'HandleVisibility','off');
+% - FORMATTING: AXES AND GRID
+% Scale and limits
+ax = gca;
+ax.YScale = 'linear'; ax.XScale = 'log';
+xlim([5, 1e6]);
+ymax    = max([ffData.f1{1}(:); ffData.f1{2}(:)]);
+ymin    = min([ffData.f1{1}(:); ffData.f1{2}(:)]);
+if ymin < -100; ymin = -100; end
+pad     = 0.25 .* (ymax - ymin);
+ylim([ymin - pad, ymax + pad]);
+% Axis appearance
+ax.LineWidth = 1.0;
+ax.FontName = 'Helvetica';
+ax.FontSize = 11;
+ax.Layer = 'top';
+ax.TickDir = "in";
+% - AXIS LABELS (on top of plot area)
+xlabel('Photon Energy [eV]', 'FontSize', 11, 'FontWeight', 'bold', 'FontName', 'Helvetica');
+ylabel('f_1 [e/atom]', 'FontSize', 11, 'FontWeight', 'bold', 'FontName', 'Helvetica');
+% - TEXT ANNOTATIONS (Using annotation objects for consistency)
 legend(ffData.formalisms, 'location', 'southeast', 'FontSize', 9);
-text(0.02, 0.96, sprintf("%s", formula),...
-    'FontSize', 14, 'color', 'k', 'Units','normalized', 'FontWeight', 'bold', 'HorizontalAlignment','left');
-xlabel(' Photon Energy [eV] ', 'FontWeight','bold');
-ylabel(' f_1 [e/atom] ', 'FontWeight','bold');
-ax = gca; ax.YScale = 'linear'; ax.XScale = 'log';
-yline(0, 'k-', 'LineWidth',1, 'HandleVisibility','off');
-xlim([5, 1e5]);
-ylim([-1, 1].*2.*max(ffData.f1{1}(:)));
-% if ele_indx < 14;       axis([5, 1e5, -20, 20]);
-% elseif ele_indx < 29;   axis([5, 1e5, -40, 40]);
-% else;                   axis([5, 1e5, -100, 100]);
-% end
-% - f2
+% Title section (element and atomic number)
+text(0.03, 0.96, sprintf('%s(Z=%.1f)', formula, ffData.avg_Z),...
+        'FontSize', 12, 'FontName', 'Helvetica', 'EdgeColor', 'none',...
+        'HorizontalAlignment', 'left', 'VerticalAlignment', 'middle',...
+        'Units','normalized', 'FontWeight', 'bold');
+%% 2.3    :   PLOT DATA #2 (f2)
 nexttile(); hold on; grid on; grid minor;
 plot(ffData.hv, ffData.f2{1}, '-', 'linewidth', 1.5, 'color', 'k'); 
 plot(ffData.hv, ffData.f2{2}, ':', 'linewidth', 2, 'color', 'r');  
-% - Formatting the axis
+yline(0, 'k-', 'LineWidth', 1, 'HandleVisibility','off');
+% - FORMATTING: AXES AND GRID
+% Scale and limits
+ax = gca;
+ax.YScale = 'log'; ax.XScale = 'log';
+xlim([5, 1e6]);
+y_log = log10([ffData.f2{1}(:); ffData.f2{2}(:)]);
+y_log(isinf(y_log)) = [];
+y_min_log = min(real(y_log));
+y_max_log = max(real(y_log));
+span_log = y_max_log - y_min_log;
+pad_log = 0.75 * span_log;
+y_min_new_log = y_min_log - pad_log;
+y_max_new_log = y_max_log + pad_log;
+ylim([10^y_min_new_log, 10^y_max_new_log]);
+% Axis appearance
+ax.LineWidth = 1.0;
+ax.FontName = 'Helvetica';
+ax.FontSize = 11;
+ax.Layer = 'top';
+ax.TickDir = "in";
+% - AXIS LABELS (on top of plot area)
+xlabel('Photon Energy [eV]', 'FontSize', 11, 'FontWeight', 'bold', 'FontName', 'Helvetica');
+ylabel('f_2 [e/atom]', 'FontSize', 11, 'FontWeight', 'bold', 'FontName', 'Helvetica');
+% - TEXT ANNOTATIONS (Using annotation objects for consistency)
 legend(ffData.formalisms, 'location', 'southwest', 'FontSize', 9);
-text(0.02, 0.96, sprintf("%s", formula),...
-    'FontSize', 14, 'color', 'k', 'Units','normalized', 'FontWeight', 'bold', 'HorizontalAlignment','left');
-xlabel(' Photon Energy [eV] ', 'FontWeight','bold');
-ylabel(' f_2 [e/atom] ', 'FontWeight','bold');
-ax = gca; ax.YScale = 'log'; ax.XScale = 'log';
-if ele_indx < 14;   axis([5, 1e5, 1e-7, 1e3]);
-else;               axis([5, 1e5, 1e-2, 1e3]);
-end
+% Title section (element and atomic number)
+text(0.03, 0.96, sprintf('%s(Z=%.1f)', formula, ffData.avg_Z),...
+        'FontSize', 12, 'FontName', 'Helvetica', 'EdgeColor', 'none',...
+        'HorizontalAlignment', 'left', 'VerticalAlignment', 'middle',...
+        'Units','normalized', 'FontWeight', 'bold');
+
 end

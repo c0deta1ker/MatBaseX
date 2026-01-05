@@ -42,6 +42,7 @@ imfpData.S4                 = mpd_calc_eal_S4(imfpData.Ek, material);
 % -- JTP (2023)
 imfpData.jtp                = mpd_calc_imfp_jtp(imfpData.Ek, material);
 %% 3 - Plotting a summary of the final IMFP figure
+%% 3.1    :   Initializing figure properties
 % -- Defining the plot properties
 colors = [
     0, 0, 0;                    % Black
@@ -56,17 +57,15 @@ colors = [
     0.9, 0.6, 0.1               % Orange
 ];
 linewidth = 2;
-% - Creating a figure
-fig = figure(); 
-fig.Position(1) = 100; fig.Position(2) = 100;
-fig.Position(3) = 1000; 
-fig.Position(4) = 550;
-% - Creating a tiled axis
-t = tiledlayout(1,1);
+%% 3.2    :   Create Figure & Axis
+fig = figure('Name', sprintf('IMFP Plot - %s (Z=%.1f)', material, Z));
+fig.Position = [100, 100, 1000, 550];  % [left, bottom, width, height]
+% Create tiled layout for clean spacing
+t = tiledlayout(1, 1);
 t.TileSpacing = 'compact';
 t.Padding = 'compact';
-% - Plot all IMFP data
 nexttile(); hold on; grid on; grid minor;
+%% 3.3    :   Plot Data
 % - PLOTTING UNIVERSAL CURVE
 loglog(imfpData.Ek_Uni, imfpData.universal,...
     '-', 'color', colors(1,:), 'LineWidth', linewidth);
@@ -94,14 +93,20 @@ loglog(imfpData.Ek, imfpData.S4,...
 % - PLOTTING JTP CURVE
 loglog(imfpData.Ek, imfpData.jtp,...
     '-', 'LineWidth', linewidth, 'color', colors(10,:));
-% - FORMATTING THE FIGURE
-% -- Labelling the x- and y-axes
+%% 3.4    :   Formatting the Axis & Grid
+% Scale and limits
+ax = gca; 
+ax.XScale = 'log'; ax.YScale = 'log'; 
+ax.Layer = 'top'; ax.TickDir = "in";
+% Axis appearance
+ax.LineWidth = 1.0;
+ax.FontName = 'Helvetica';
+ax.FontSize = 11;
+% - Labeling the x- and y-axes
 xlabel('Electron Kinetic Energy [eV] ', 'FontWeight','bold');
 ylabel(' IMFP [Angstrom] ', 'FontWeight','bold');
-text(0.02, 0.97, sprintf("%s(Z=%.1f)", material, Z),...
-    'FontSize', 14, 'color', 'k', 'Units','normalized', 'FontWeight', 'bold', 'HorizontalAlignment','left');
-ax = gca; ax.YScale = 'log'; ax.XScale = 'log';
 axis([1, 210000, 1, 5e3]);
+%% 3.5    :   Text Annotations
 % -- Add a legend
 list_of_formalisms = {...
     'Seah(1979)-Universal',...
@@ -127,4 +132,10 @@ h(8)    = plot(NaN,NaN,'r--',    'LineWidth', linewidth, 'color',colors(8,:));
 h(9)    = plot(NaN,NaN,'r:',   'LineWidth', linewidth, 'color',colors(9,:));
 h(10)   = plot(NaN,NaN,'r-',    'LineWidth', linewidth, 'color',colors(10,:));
 legend(h,list_of_formalisms,'location', 'eastoutside', 'FontSize', 8);
+% Title section (element and atomic number)
+text(0.02, 0.96, sprintf('%s(Z=%.1f)', material, Z),...
+        'FontSize', 12, 'FontName', 'Helvetica', 'EdgeColor', 'none',...
+        'HorizontalAlignment', 'left', 'VerticalAlignment', 'middle',...
+        'Units','normalized', 'FontWeight', 'bold');
+
 end
