@@ -98,5 +98,13 @@ calc_xsect_angle_aniso_FP(hv, element, corelevel, theta, phi, 1, extrapolate, pl
 calc_xsect_angle_aniso_FU(hv, element, [], theta, extrapolate, plot_results);
 
 %%  3   :   New view() Functions
+view_spectroscopy('Si', 6000, -1);
+view_spectroscopy('InAs', 250, -1);
 
-
+%%  4   :   Testing overlay() functions
+elements = ["Pb", "Si", "Au", "In"];
+parity = -1;
+figure(); hold on; overlay_be(elements, parity, [-5000, -5]);
+figure(); hold on; overlay_xae(elements, parity);
+elements = ["Pb", "Si", "Au", "In"];
+figure(); hold on; overlay_auger(elements, 2500, -1, [-1000,-250]);

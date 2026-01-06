@@ -19,45 +19,60 @@ ATOM_SYMB = ATOM_SYMB(1:98);
 %% Default parameters
 if nargin < 1; elements = ATOM_SYMB;  end
 if nargin < 2; parity = 1;  end
-if nargin < 3; energy_lims = [0.05, 5e5];  end
+if nargin < 3; energy_lims = [];  end
 if isempty(elements); elements = ATOM_SYMB; end
 if isempty(parity); parity = 1; end
-if isempty(energy_lims); energy_lims = [0.05, 5e5]; end
+if isempty(energy_lims); energy_lims = []; end
 %% Validity checks on the input parameters
-elements     = string(elements);
-energy_lims = sort(energy_lims);
-%% 1 - Filing through all the selected elements and extracting absorption edges
-% Extracting Parameters
+elements            = string(elements);
+energy_lims         = sort(energy_lims);
 num_of_elements     = length(elements);
+%% 1 - Filing through all the selected elements and extracting absorption edges
 % -- Extracting Absorption Edge Characteristics
 for i = 1:num_of_elements
     [edge_energy{i}, edge_name{i}, edge_width{i}, edge_jumps{i}] = calc_xae(elements(i));
-    % edge_jumps{i} = vformula(i).ratio .* edge_jumps{i};
-    % -- Removing all entries that lies outside of the energy limits
-    edge_name{i}(edge_energy{i}<energy_lims(1)) = []; 
-    edge_width{i}(edge_energy{i}<energy_lims(1)) = []; 
-    edge_jumps{i}(edge_energy{i}<energy_lims(1)) = []; 
-    edge_energy{i}(edge_energy{i}<energy_lims(1)) = [];
-    edge_name{i}(edge_energy{i}>energy_lims(2)) = []; 
-    edge_width{i}(edge_energy{i}>energy_lims(2)) = []; 
-    edge_jumps{i}(edge_energy{i}>energy_lims(2)) = []; 
-    edge_energy{i}(edge_energy{i}>energy_lims(2)) = [];
 end
 % -- Relative Intensity
 norm_val = cat(1, edge_jumps{:});
 norm_val = max(norm_val(:));
 for i = 1:num_of_elements; redge_jumps{i} = edge_jumps{i} ./ norm_val; end
+%% 2 - Extracting the parity of the energies
+if parity == -1;        for i = 1:length(edge_energy); edge_energy{i} = -1 .* edge_energy{i}; end
+elseif parity == +1;    for i = 1:length(edge_energy); edge_energy{i} = +1 .* edge_energy{i}; end
+end
+% -- Removing all entries that lies outside of the energy limits
+for i = 1:num_of_elements
+    if ~isempty(energy_lims)
+        % -- Lower bound
+        edge_name{i}(edge_energy{i}<energy_lims(1)) = []; 
+        edge_width{i}(edge_energy{i}<energy_lims(1)) = []; 
+        edge_jumps{i}(edge_energy{i}<energy_lims(1)) = []; 
+        redge_jumps{i}(edge_energy{i}<energy_lims(1)) = [];
+        edge_energy{i}(edge_energy{i}<energy_lims(1)) = [];
+        % -- Upper bound
+        edge_name{i}(edge_energy{i}>energy_lims(2)) = []; 
+        edge_width{i}(edge_energy{i}>energy_lims(2)) = []; 
+        edge_jumps{i}(edge_energy{i}>energy_lims(2)) = []; 
+        redge_jumps{i}(edge_energy{i}>energy_lims(2)) = [];
+        edge_energy{i}(edge_energy{i}>energy_lims(2)) = [];
+    end
+end
 %% 3 - Overlaying the binding energy lines
 hold on;
 ax_lims = axis;
-yval    = 0.75*max(ax_lims(3:4));
+aheight = linspace(0.60, 0.80, length(edge_name));
 for i = 1:num_of_elements
     nCL         = length(edge_name{i});
-    colorList   = read_spectroscopy_colors(edge_name{i});
+    cols        = lines(length(edge_name{i}));
+    yval        = aheight(i)*max(ax_lims(3:4));
     for j = 1:nCL
-        xline(edge_energy{i}(j), ':', 'linewidth', 1.2, 'color', colorList{j}, 'HandleVisibility','off'); 
-        text(edge_energy{i}(j)+0.75, yval, sprintf('%s-%s(%.2f)', elements(i), edge_name{i}(j), edge_energy{i}(j)),...
-            'Rotation',90, 'FontWeight','normal', 'FontSize',8, 'color', colorList{j});
+        edge_ij = edge_energy{i}(j);
+        stem(edge_ij, yval, ':',...
+            'linewidth', 1.25, 'marker', 'none', 'color', cols(i,:), 'HandleVisibility','off');
+        str = sprintf('%s%s(%.2f)', elements{i}, edge_name{i}{j}, edge_energy{i}(j));
+        text(edge_ij, yval, str,...
+            'Rotation', 90, 'FontWeight','normal', 'FontSize', 8, 'color', cols(i,:),...
+            'HorizontalAlignment','left');
     end
 end
 end
