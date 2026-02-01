@@ -1,6 +1,6 @@
 # MatBaseX: Comprehensive Materials and X-ray Interaction Database for Photoelectron Spectroscopy Analysis  
 
-[MatBaseX](https://github.com/c0deta1ker/MatBaseX) is a comprehensive database and analytical tool tailored for photoelectron spectroscopy (PES) analysis, emphasizing the study of materials and their X-ray interactions. It seamlessly integrates calculators and databases into one platform, providing functionalities such as a Materials Properties Database for managing data, tools for analysing X-ray Photoionization Energies, Cross-Sections, Auger Transiotion Energies and X-ray Absorption and Scattering Factors. These features help users very quickly identify which core-levels give the most intensity at a given photon energy (via cross-section maximisation) or locate absorption edges for resonance spectroscopy. It also includes calculators for electron inelastic mean free path (IMFP) determination using eight different formalisms, as well as an XPS Sensitivity Factor Calculator to support precise, quantitative PES analysis.      
+[MatBaseX](https://github.com/c0deta1ker/MatBaseX) is a comprehensive database and analytical tool tailored for photoelectron spectroscopy (PES) analysis, emphasizing the study of materials and their X-ray interactions. It seamlessly integrates calculators and databases into one platform, providing functionalities such as a Materials Properties Database for managing data, tools for analysing X-ray Photoionization Energies, Cross-Sections, Auger Transition Energies and X-ray Absorption and Scattering Factors. These features help users very quickly identify which core-levels give the most intensity at a given photon energy (via cross-section maximisation) or locate absorption edges for resonance spectroscopy. It also includes calculators for electron inelastic mean free path (IMFP) determination using eight different formalisms, as well as an XPS Sensitivity Factor Calculator to support precise, quantitative PES analysis.      
 
 Additional features include PES N-Layer Simulations, which utilizes the Beer-Lambert law to compute intensities for a user-defined heterostructure, and a PES Curve Fitting App that allows users to quickly load in experimental data (two-column text file containing binding energy and intensity values) and determine the best fit. By integrating all these advanced databases, calculators, and analytical tools, MatBaseX helps researchers streamline workflows and enhance the precision of their data analysis. [Download MatBaseX](https://github.com/c0deta1ker/MatBaseX/releases/download/v1.3/MatBaseX_Installer.exe) today to explore its powerful capabilities!    
 
@@ -94,43 +94,49 @@ NIST Database (2005):
 IXAS Database (2025):  
 [[14](https://xraydb.xrayabsorption.org/element/)] _IXAS X-ray Data for the Elements_    
 
+
+**Auger Transition Energies**  
+Perkins Database (1991):  
+[[15](https://doi.org/10.2172/10121422)] _S.T.Perkins, D.E.Cullen, et al., Tables and graphs of atomic sub-shell and relaxation data derived from the LLNL Evaluated Atomic Data Library (EADL),  Z = 1-100 Lawrence Livermore National Laboratory, UCRL-50400, Vol. 30_      
+
+
 **Inelastic Mean-Free Path (IMFP) Sources**  
 Universal (1979):    
-[[15](http://dx.doi.org/10.18434/T48C78)] _Seah, M. Pl, and W. A. Dench. "Quantitative electron spectroscopy of surfaces: A standard data base for electron inelastic mean free paths in solids." Surface and interface analysis 1.1 (1979): 2-11_  
+[[16](http://dx.doi.org/10.18434/T48C78)] _Seah, M. Pl, and W. A. Dench. "Quantitative electron spectroscopy of surfaces: A standard data base for electron inelastic mean free paths in solids." Surface and interface analysis 1.1 (1979): 2-11_  
 
 TPP-2M Formalism (1994):      
-[[16](https://doi.org/10.1002/sia.740010103)] _Tanuma, Shigeo, Cedric J. Powell, and David R. Penn. "Calculations of electron inelastic mean free paths. V. Data for 14 organic compounds over the 50–2000 eV range." Surface and interface analysis 21.3 (1994): 165-176_  
-[[17](https://doi.org/10.1002/sia.1526)] _Tanuma, Shigeo, Cedric J. Powell, and David R. Penn. "Calculation of electron inelastic mean free paths (IMFPs) VII. Reliability of the TPP‐2M IMFP predictive equation." Surface and interface analysis 35.3 (2003): 268-275_    
-[[18](https://doi.org/10.1002/sia.4816)] _Seah, M. P. "An accurate and simple universal curve for the energy‐dependent electron inelastic mean free path." Surface and interface analysis 44.4 (2012): 497-503_    
-[[19](https://doi.org/10.1002/sia.3522)] _Tanuma, Shigeo, C. J. Powell, and D. R. Penn. "Calculations of electron inelastic mean free paths. IX. Data for 41 elemental solids over the 50 eV to 30 keV range." Surface and interface analysis 43.3 (2011): 689-713_    
+[[17](https://doi.org/10.1002/sia.740010103)] _Tanuma, Shigeo, Cedric J. Powell, and David R. Penn. "Calculations of electron inelastic mean free paths. V. Data for 14 organic compounds over the 50–2000 eV range." Surface and interface analysis 21.3 (1994): 165-176_  
+[[18](https://doi.org/10.1002/sia.1526)] _Tanuma, Shigeo, Cedric J. Powell, and David R. Penn. "Calculation of electron inelastic mean free paths (IMFPs) VII. Reliability of the TPP‐2M IMFP predictive equation." Surface and interface analysis 35.3 (2003): 268-275_    
+[[19](https://doi.org/10.1002/sia.4816)] _Seah, M. P. "An accurate and simple universal curve for the energy‐dependent electron inelastic mean free path." Surface and interface analysis 44.4 (2012): 497-503_    
+[[20](https://doi.org/10.1002/sia.3522)] _Tanuma, Shigeo, C. J. Powell, and D. R. Penn. "Calculations of electron inelastic mean free paths. IX. Data for 41 elemental solids over the 50 eV to 30 keV range." Surface and interface analysis 43.3 (2011): 689-713_    
 
 NIST Electron IMFP Database (1999):     
-[[20](http://dx.doi.org/10.18434/T48C78)] _NIST Standard Reference Database 71_
+[[21](http://dx.doi.org/10.18434/T48C78)] _NIST Standard Reference Database 71_
 
 S1 & S2 Formalism (2011):     
-[[21](https://doi.org/10.1002/sia.4816)] _Seah, M. P. "An accurate and simple universal curve for the energy‐dependent electron inelastic mean free path." Surface and interface analysis 44.4 (2012): 497-503_    
+[[22](https://doi.org/10.1002/sia.4816)] _Seah, M. P. "An accurate and simple universal curve for the energy‐dependent electron inelastic mean free path." Surface and interface analysis 44.4 (2012): 497-503_    
 
 S3 & S4 Formalism (2012):    
-[[22](https://doi.org/10.1002/sia.5033)] _Seah, M. P. "Simple universal curve for the energy‐dependent electron attenuation length for all materials." Surface and interface analysis 44.10 (2012): 1353-1359_   
+[[23](https://doi.org/10.1002/sia.5033)] _Seah, M. P. "Simple universal curve for the energy‐dependent electron attenuation length for all materials." Surface and interface analysis 44.10 (2012): 1353-1359_   
 
 JTP Formalism (2023):    
-[[23](https://doi.org/10.1002/sia.7217)] _Jablonski, Aleksander, Shigeo Tanuma, and Cedric J. Powell. "Calculations of electron inelastic mean free paths (IMFPs). XIV. Calculated IMFPs for LiF and Si3N4 and development of an improved predictive IMFP formula." Surface and Interface Analysis 55.8 (2023): 609-637_   
+[[24](https://doi.org/10.1002/sia.7217)] _Jablonski, Aleksander, Shigeo Tanuma, and Cedric J. Powell. "Calculations of electron inelastic mean free paths (IMFPs). XIV. Calculated IMFPs for LiF and Si3N4 and development of an improved predictive IMFP formula." Surface and Interface Analysis 55.8 (2023): 609-637_   
 
 **Useful PES Quantification Literature**  
-[[24](https://doi.org/10.1016/0009-2614(76)80496-4)] _Hill, J. M., et al. "Properties of oxidized silicon as determined by angular-dependent X-ray photoelectron spectroscopy." Chemical Physics Letters 44.2 (1976): 225-231_   
-[[25](https://doi.org/10.1002/sia.5934)] _Walton, J., et al. "Film thickness measurement and contamination layer correction for quantitative XPS." Surface and Interface Analysis 48.3 (2016): 164-172_   
-[[26](https://doi.org/10.1116/1.5141395)] _Shard, Alexander G. "Practical guides for x-ray photoelectron spectroscopy: Quantitative XPS." Journal of Vacuum Science & Technology A 38.4 (2020)_   
+[[25](https://doi.org/10.1016/0009-2614(76)80496-4)] _Hill, J. M., et al. "Properties of oxidized silicon as determined by angular-dependent X-ray photoelectron spectroscopy." Chemical Physics Letters 44.2 (1976): 225-231_   
+[[26](https://doi.org/10.1002/sia.5934)] _Walton, J., et al. "Film thickness measurement and contamination layer correction for quantitative XPS." Surface and Interface Analysis 48.3 (2016): 164-172_   
+[[27](https://doi.org/10.1116/1.5141395)] _Shard, Alexander G. "Practical guides for x-ray photoelectron spectroscopy: Quantitative XPS." Journal of Vacuum Science & Technology A 38.4 (2020)_   
 
 **Useful Websites for XPS Information & Application Notes**    
-[[27](https://srdata.nist.gov/xps/)] NIST X-ray Photoelectron Spectroscopy Database  
-[[28](https://www.xpsfitting.com/search/label/About%20This%20Site)] Surface Science Western laboratories (XPS Reference Pages)  
-[[29](https://www.xpsdata.com/xpsdata.htm)] XPS Information and Application Notes   
-[[30](https://xpsdatabase.net/)] B. Vincent Crist: International XPS Database  
-[[31](https://xpslibrary.com/)] B. Vincent Crist: XPS Information and Application Notes  
-[[32](https://a-x-s.org/research/cross-sections/)] A. Regoutz: Source of the Digitized Photoionization Parameters  
+[[28](https://srdata.nist.gov/xps/)] NIST X-ray Photoelectron Spectroscopy Database  
+[[29](https://www.xpsfitting.com/search/label/About%20This%20Site)] Surface Science Western laboratories (XPS Reference Pages)  
+[[30](https://www.xpsdata.com/xpsdata.htm)] XPS Information and Application Notes   
+[[31](https://xpsdatabase.net/)] B. Vincent Crist: International XPS Database  
+[[32](https://xpslibrary.com/)] B. Vincent Crist: XPS Information and Application Notes  
+[[33](https://a-x-s.org/research/cross-sections/)] A. Regoutz: Source of the Digitized Photoionization Parameters  
 
 
 ## License  
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](LICENSE.md) file for details.
 
---PCC, April 2025
+--PCC, February 2026  
