@@ -49,7 +49,7 @@ end
 %% 3 - Overlaying the binding energy lines
 hold on;
 ax_lims = axis;
-aheight = linspace(0.60, 0.80, length(be));
+aheight = linspace(0.70, 0.90, length(be));
 for i = 1:length(be)
     cols    = lines(length(be));
     yval    = aheight(i)*max(ax_lims(3:4));

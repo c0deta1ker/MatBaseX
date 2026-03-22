@@ -19,8 +19,16 @@ if isempty(FileName);   FileName = '';  end
 if isempty(PathName);   PathName = '';  end
 disp('Loading in PHELIX text-file data...')
 %% 1 - Initializing the .XY file data into a standard format
+% -- Loading in the raw data, and ensure that correct numeric data is loaded
 Traw = readtable(PathName + FileName, 'FileType', 'text', 'NumHeaderLines', 48);
-Traw(:,3:end) = []; % keep only first two columns
+if iscell(Traw.Var3)
+    Traw(:,3:end) = []; % keep only first two columns
+else
+    Traw(:,4:end) = []; % keep only first three columns
+    Traw.Var_Merged                     = Traw.Var2;
+    Traw.Var_Merged(isnan(Traw.Var2))   = Traw.Var3(isnan(Traw.Var2));
+    Traw(:,2:3) = []; % Remove middle columns
+end
 % Convert to numeric array for fast operations
 A = Traw{:, :};     % n-by-2 numeric
 % Remove rows with NaN in first column
